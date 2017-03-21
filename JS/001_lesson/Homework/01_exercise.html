@@ -1,0 +1,28 @@
+<!--
+###Задача 1. 
+Создайте функцию find(arr, value), которая ищет в массиве arr значение value и возвращает его номер, если найдено, или -1, если не найдено. 
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 1</title> 
+
+<script>
+
+var nums = [1,2,31,24,-67,5,3,555,79,-4,21,33,89,-90]; // Создаем массив
+ 
+function find(array, value) { // Создаем функцию
+    return array.indexOf(value); // которая возвращает индекс элемента или -1 если элемента в массиве нету
+}
+
+console.log( find(nums, 666) ); // Ответ -1, так как число не найдено
+console.log( find(nums, 555) ); // Ответ 7
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

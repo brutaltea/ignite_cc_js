@@ -1,0 +1,38 @@
+<!-- ###Задача 2. 
+Создайте функцию isEmpty(obj), которая возвращает true, если в объекте нет свойств и false – если хоть одно свойство есть.
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 2</title> 
+
+<script>
+    
+    function isEmpty(obj){ // Создали функцию isEmpty(obj)
+        for (key in obj) { // Проверяем есть ли в объекте хоть одно свойство
+            return false; // Если есть возвращаем false
+        } 
+        return true; // Если нет - true
+    };
+
+    var user = {        // Создаем объект
+        name: "Anton",  // со свойством name
+        age: 25         // и свойством age
+    };
+
+    console.log(isEmpty(user)); // Проверяем функцию, результат false, так как у объекта есть два свойства
+
+    var data = {}; // Создаем пустой объект
+    
+    console.log(isEmpty(data)); // Проверяем функцию: результат true, так как у объекта свойств нету
+    
+</script>
+
+</head> 
+	
+<body> 
+<!-- html here --> 
+</body>
+</html>
