@@ -1,0 +1,43 @@
+<!-- 
+###Задача 2.  
+
+Код для  задачи: 
+
+```
+<body>
+
+  <div id="widget" data-widget-name="menu">Выберите жанр</div>
+
+  <script>
+    /* ... */
+  </script>
+</body>
+```
+Задание: 
+
+* Напишите код, который получит объект для тега div и запишите его в переменную.
+* Запишите значение атрибута "data-widget-name" в переменную.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 2</title> 
+</head> 
+	
+<body>
+
+  <div id="widget" data-widget-name="menu">Выберите жанр</div>
+
+  <script>
+
+    var a = document.getElementsByTagName('div');    //код, который получит объект для тега div и запишит его в переменную а
+    var b = widget.getAttribute('data-widget-name'); // значение атрибута "data-widget-name" в переменную b
+
+    console.log(a); // Проверка
+    console.log(b);
+
+  </script>
+
+</body>
+</html>

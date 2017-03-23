@@ -1,0 +1,33 @@
+<!--
+
+###Задача 3. 
+   Напишите функцию, которая складывает числа при двойном вызове. 
+Например: 
+```
+add(3)(4)  // 7
+```
+
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 3</title> 
+
+<script>
+     
+function add(i){        // Создаем функцию add
+    return function(j){ // Возвращаем вложенную функцию
+        alert (i + j);  // Выводим на экран сумму параметров
+    };
+};
+
+add(3)(4); 
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

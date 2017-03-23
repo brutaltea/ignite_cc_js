@@ -1,0 +1,63 @@
+<!--
+### Задача 3. 
+ Дан объект ladder 
+```
+var ladder = {
+  step: 0,
+  up: function() { // вверх по лестнице
+    this.step++;
+  },
+  down: function() { // вниз по лестнице
+    this.step--;
+  },
+  showStep: function() { // вывести текущую ступеньку
+    alert( this.step );
+  }
+};
+```
+Сейчас, для последовательного вызова нескольких методов объекта, нужно вызывать каждый из них отдельно:
+```
+ladder.up();
+ladder.up();
+ladder.down();
+ladder.showStep(); // 1 
+```
+Модифицируйте код методов объекта, чтобы вызовы можно было делать цепочкой:
+```
+ladder.up().up().down().up().down().showStep(); // 1
+```
+
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 3</title> 
+
+<script>
+
+var ladder = {
+  step: 0,
+  up: function() {
+    this.step++;
+    return this;      // Возвращаем
+  },
+  down: function() {
+    this.step--;
+    return this;      // текущий
+  },
+  showStep: function() {
+    alert( this.step );
+    return this;      // объект
+  }
+};
+
+ladder.up().up().down().up().down().showStep(); // После каждого метода вовзаращем текущий объет с помощью this и выполняем следующий метод
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

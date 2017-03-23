@@ -1,0 +1,45 @@
+<!--
+###Задача 1. 
+Каков будет результат выполнения этого кода? 
+
+Изменится ли внешняя переменная value ?
+Как изменится рузультат, если из строки var value = false убрать ключевое слово var?
+```
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 1</title> 
+
+<script>
+
+    var value = 0;
+
+function f() {
+    if (1) {
+        value = true;             // Меняем глобальное значение переменной value
+    } else {
+        var value = false;        // Меняем локальное значение переменной value
+        }
+    alert( value );
+};
+f();                                // Результат true
+
+function f1() {
+    if (1) {
+        value = true;             // Меняем глобальное значение переменной value
+    } else {
+         value = false;           // Меняем глобальное значение переменной value
+    }
+    alert( value );
+};
+f1();                                // Результат не изменился потому что выполняется первое условие if(1)
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

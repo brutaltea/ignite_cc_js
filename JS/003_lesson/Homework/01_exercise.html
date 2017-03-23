@@ -1,0 +1,46 @@
+<!--
+###Задача 1  
+Напишите функцию sum, которая будет работать как показано в примере ниже: 
+```
+sum(1)(2) == 3; // 1 + 2
+sum(1)(2)(3) == 6; // 1 + 2 + 3
+sum(5)(-1)(2) == 6
+sum(6)(-1)(-2)(-3) == 0
+sum(0)(1)(2)(3)(4)(5) == 15
+```
+Количество скобок может быть любым.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 1</title> 
+
+<script>
+
+function sum(a) {
+  var currentSum = a;       // Создаем переменную чтобы в нее записывать первый параметр
+  function f(b) {
+    currentSum += b;        // Принимаем второй параметр и добавляем его к первому
+    //console.log(currentSum); 
+    return f;               // Возвращаем функцию столько раз сколько у нас параметров
+  };
+  f.toString = function() { // Превращаем функцию в строку чтобы получить результат в виде числа
+    return currentSum;
+  };
+  return f;
+};
+
+alert( sum(1)(2) );
+alert( sum(1)(2)(3) );
+alert( sum(5)(-1)(2) );
+alert( sum(6)(-1)(-2)(-3) );
+alert( sum(0)(1)(2)(3)(4)(5) );
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

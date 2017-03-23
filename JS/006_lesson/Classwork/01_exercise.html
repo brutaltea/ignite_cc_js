@@ -1,0 +1,50 @@
+<!-- 
+###Задача 1. 
+Код для задачи: ```
+<body>
+  <div>Пользователи:</div>
+  <ul>
+    <li>user1</li>
+    <li>user2</li>
+  </ul>
+
+  <script>
+    // ... ваш код
+  </script>
+
+</body>
+``` 
+Задание: 
+
+* Напишите код, который получит объект для тега head и запишет его в переменную.
+* Напишите код, который получит объект для тега ul и запишет его в переменную.
+* Напишите код, который получит объект для второго тега li и запишет его в переменную. 
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 1</title> 
+</head> 
+	
+<body>
+  <div>Пользователи:</div>
+  <ul>
+    <li>user1</li>
+    <li>user2</li>
+  </ul>
+
+  <script>
+
+    var a = document.getElementsByTagName('head'); // код, который получит объект для тега head и запишет его в переменную a
+    var b = document.getElementsByTagName('ul');   // код, который получит объект для тега ul и запишет его в переменную b
+    var c = document.getElementsByTagName('li');   // код, который получит объект для второго тега li и запишет его в переменную с
+
+    console.log(a); // Проверка
+    console.log(b);
+    console.log(c);
+
+  </script>
+
+</body>
+</html>
