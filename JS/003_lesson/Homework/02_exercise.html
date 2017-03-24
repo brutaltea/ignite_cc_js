@@ -28,7 +28,19 @@ runString(arg, obj)
 
 <script>
 
+var arg = 4,
+    obj = {
+      param: 'num',
+      func: 'console.log(Math.sqrt(num))'   // заменил return на console.log() для наглядности
+    };
 
+function runString(argument, object){
+  num = arg;
+  var func1 = new Function('arg', object.func); // Cоздаем функцию с нужными параметрами
+  func1();                                      // Вызываем нашу функцию
+};
+
+runString(arg, obj);
 
 </script>
 
