@@ -1,0 +1,63 @@
+<!-- 
+###Задача 1.
+
+Создайте две HTML страницы с разным контентом. Создайте страницу, в которой находиться сценарий загружающий и отображающий контент двух этих страниц при нажатии на кнопку. Контент должен загружаться асинхронно.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 1</title>
+</head> 
+	
+<body>
+ 
+ <div id="first"></div>
+
+ <div id="second"></div>
+
+
+  <script>
+
+  var first = document.getElementById('first');
+  var second = document.getElementById('second');
+
+   window.onload = function(){
+    function get(){
+      var firstReq = new XMLHttpRequest();
+      firstReq.open("GET", "firstDonor.html");
+      var secondReq = new XMLHttpRequest();
+      secondReq.open("GET", "secondDonor.html");
+
+      firstReq.onreadystatechange = function(){
+        if (firstReq.readyState == 4){
+          if (firstReq.status == 200){
+            document.getElementById("first").innerHTML = firstReq.responseText;
+          }else{
+            document.getElementById("first").innerHTML = "Whoops, something went wrong!";
+          };
+        };
+      };
+
+      secondReq.onreadystatechange = function(){
+        if (secondReq.readyState == 4){
+          if (secondReq.status == 200){
+            document.getElementById("second").innerHTML = secondReq.responseText;
+          }else{
+            document.getElementById("second").innerHTML = "Whoops, something went wrong!";
+          };
+        };
+      };
+
+      firstReq.send();
+      secondReq.send();
+    };
+
+    get();
+  };
+    </script>
+
+  </script>
+
+</body>
+</html>

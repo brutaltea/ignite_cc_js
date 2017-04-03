@@ -1,0 +1,76 @@
+<!-- 
+###Задача 3.
+
+Напишите функцию makeBoard, которая генерирует таблицу с указанным количеством строк и столбцов и закрашивает ее ечейки черным и белым цветами в шахматном порядке.
+-->  
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 3</title> 
+<style>
+  td{
+    width: 50px;
+    height: 50px;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>
+</head> 
+	
+<body>
+  <script>
+
+  var rows = 8;
+  var columns = 8;
+
+  var td = '';
+  var table = '';
+
+  function makeBoard() {
+
+    function makeColumns(){    
+      for (var c = 0; c<columns; c++){
+        td = td + '<td></td>';
+      };
+    };
+    function makeTableHTML(){    
+      for (var r = 0; r<rows; r++){
+        table = table +'<tr>' + td + '</tr>';
+      };
+    };
+    function makeTable(){
+      var tableElem = document.createElement('table');
+      tableElem.innerHTML = table;
+      document.body.insertAdjacentElement("afterBegin", tableElem);
+    };
+    function makeColor(){
+      var arr = document.getElementsByTagName('tr');
+      
+      for (i=0; i<arr.length; i=i+2){
+        var arr1 = arr[i].getElementsByTagName('td');
+        for (j=1; j<arr1.length; j=j+2){
+            arr1[j].style.backgroundColor = 'black';
+          };};      
+      for (x=1; x<arr.length; x=x+2) {
+          var arr1 = arr[x].getElementsByTagName('td');
+          for (y=0; y<arr1.length; y=y+2){
+            arr1[y].style.backgroundColor = 'black';
+        };
+      };
+    };
+
+    makeColumns();
+    makeTableHTML();
+    makeTable();
+    makeColor();
+
+  };
+
+  makeBoard();
+
+  </script>
+
+</body>
+</html>

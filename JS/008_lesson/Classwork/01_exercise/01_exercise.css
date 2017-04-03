@@ -1,0 +1,13 @@
+div{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border: 1px solid black;
+    margin-left: 5px;
+  }
+button {
+  float: left;
+  clear: left;
+  margin: 50px 50px 50px 185px;
+}

@@ -16,10 +16,10 @@ add(3)(4)  // 7
 
 <script>
      
-function add(i){        // Создаем функцию add
-    return function(j){ // Возвращаем вложенную функцию
-        alert (i + j);  // Выводим на экран сумму параметров
-    };
+function add(i){
+  return function(j){
+    alert (i + j);
+  };
 };
 
 add(3)(4); 

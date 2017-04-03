@@ -11,22 +11,22 @@
 
 <script>
 
-var arr = [1, 90, 789, 56, 45, 34, 678, 78, -90, -6, 5, 3, 6]; // Создайем массив
-document.write(arr);                                           // Для наглядности выведем массив на экран
+var arr = [1, 90, 789, 56, 45, 34, 678, 78, -90, -6, 5, 3, 6];
+document.write(arr);
 document.write("<hr />");
-function bubbleSort(array) {                          // Создаем фукцию пузырьковой сортировки с параметром array
-    for (var i = 0; i < array.length-1; i++){         // Проходим массив array.length-1 раз, потому что последний элемент сравнивать не с чем
-        for (var j = 0; j < array.length-1-i; j++){   // С каждым проходом уменьшаем количество проходов из-за отрсортированных ранее элементов
-            if (array[j] > array[j+1]){               // Сравниваем попарно элементы массива, если первый элемент больше второго
-                var z = array[j];                     // меняем
-                array[j] = array[j+1];                // их 
-                array[j+1] = z;                       // местами
+function bubbleSort(array){
+    for (var i = 0; i < array.length-1; i++){
+        for (var j = 0; j < array.length-1-i; j++){
+            if (array[j] > array[j+1]){
+                var z = array[j];
+                array[j] = array[j+1];
+                array[j+1] = z;
             };
         }; 
     };
- document.write(array);                               // Выведем отсортированный массив на экран 
+ document.write(array);
 };
-bubbleSort(arr);                                      // Выполняем функция для нашего массива
+bubbleSort(arr);
 
 </script>
 

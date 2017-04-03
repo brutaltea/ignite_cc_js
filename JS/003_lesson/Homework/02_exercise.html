@@ -31,13 +31,13 @@ runString(arg, obj)
 var arg = 4,
     obj = {
       param: 'num',
-      func: 'console.log(Math.sqrt(num))'   // заменил return на console.log() для наглядности
+      func: 'console.log(Math.sqrt(num))'
     };
 
 function runString(argument, object){
   num = arg;
-  var func1 = new Function('arg', object.func); // Cоздаем функцию с нужными параметрами
-  func1();                                      // Вызываем нашу функцию
+  var func1 = new Function('arg', object.func);
+  func1();
 };
 
 runString(arg, obj);

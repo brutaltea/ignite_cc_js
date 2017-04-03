@@ -1,0 +1,57 @@
+<!-- 
+###Задача 2 
+
+Напишите функцию insertAfter(elem, refElem), которая добавит elem после узла refElem. 
+```
+<div>Это</div>
+<div>Элементы</div>
+
+<script>
+  var elem = document.createElement('div');
+  elem.innerHTML = '<b>Новый элемент</b>';
+
+  function insertAfter(elem, refElem) { /* ваш код */ }
+
+  var body = document.body;
+
+  // вставить elem после первого элемента
+  insertAfter(elem, body.firstChild); // <--- должно работать
+
+  // вставить elem за последним элементом
+  insertAfter(elem, body.lastChild); // <--- должно работать
+</script>
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 2</title>
+</head> 
+	
+<body>
+  <div>Это</div>
+  <div>Элементы</div>
+
+<script>
+  var elem = document.createElement('div');
+  elem.innerHTML = '<b>Новый элемент</b>';
+
+  function insertAfter(elem, refElem) {
+    var body = document.body;
+  if (refElem == body.firstChild) {
+    return refElem.parentNode.insertBefore(elem, refElem.nextSibling); // после первого*
+  } if (refElem == body.lastChild) {
+    return refElem.parentNode.appendChild(elem);        // после второго
+  }
+}
+
+  var body = document.body;
+  // вставить elem после первого элемента
+  insertAfter(elem, body.firstChild); // <--- должно работать
+
+  // вставить elem за последним элементом
+  insertAfter(elem, body.lastChild); // <--- должно работать
+</script>
+
+  </body>
+</html>

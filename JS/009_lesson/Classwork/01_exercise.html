@@ -1,0 +1,36 @@
+<!-- 
+  ###Задача 1.
+
+Создайте страницу. Реализуйте следующее:
+
+При нажатии комбинации клавиш ctrl + a (регистр не учитывается!) на экран выводится сообщение ‘Данные выбраны’;
+При нажатии комбинации клавиш ctrl + s (регистр не учитывается!) на экран выводится сообщение ‘Данные сохранены’;
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 1</title>
+</head> 
+	
+<body>
+ 
+  <script>
+
+  function catchKeydown(e){
+    if (e.ctrlKey == true && e.keyCode == '65'){
+      console.log('Данные выбраны');
+       e.preventDefault();
+    };
+    if (e.ctrlKey == true && e.keyCode == '83'){
+      console.log('Данные сохранены');
+       e.preventDefault();
+     };
+  };
+
+  document.addEventListener('keydown', catchKeydown);
+
+  </script>
+
+</body>
+</html>

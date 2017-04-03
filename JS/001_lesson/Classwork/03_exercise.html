@@ -14,26 +14,26 @@
 
 <script>
 
-    var nums = [1,2,31,24,-67,5,3,555,79,-4,21,33,89,-90]; // Создаем массив чисел
+    var nums = [1,2,31,24,-67,5,3,555,79,-4,21,33,89,-90];
 
-    var max = Math.max.apply(null, nums); // Находим максимальное значение массива
-    var min = Math.min.apply(null, nums); // Находим минимальное значение массива
+    var max = Math.max.apply(null, nums);
+    var min = Math.min.apply(null, nums);
 
-    var nums1 = [];                       // Создаем пустой массив куда мы будем добавлять положительные и четные числа
-    for (var i = 0; i<nums.length; i++) { // Проверяем каждое значение массива 
-        var x = nums[i]%2;                // Определяем четное ли число
-        if (nums[i]>0 || x==0){           // Если число больше ноля и делится на два без остатка (четное)
-            nums1.push(nums[i]);          // Добавляем его в новый массив
+    var nums1 = [];
+    for (var i = 0; i<nums.length; i++){
+        var x = nums[i]%2;
+        if (nums[i]>0 || x==0){
+            nums1.push(nums[i]);
         };
     };
     
-    document.write(nums); // Выводим заданый массив на экран для наглядности
+    document.write(nums);
     document.write("<hr />");
-    document.write(max); // Выводим максимальное значение массива
+    document.write(max);
     document.write("<hr />");
-    document.write(min); // Выводим минимальное значение массива
+    document.write(min);
     document.write("<hr />");
-    document.write(nums1); // Выводим новый массив
+    document.write(nums1);
 
 
 </script>

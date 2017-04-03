@@ -1,0 +1,47 @@
+<!-- 
+  ###Задача 2.
+Создайте круг красного цвета с надписью "Скидка". Когда курсор пользователя будет приближаться к ней, "Скидка" должна от него "убегать", не давая пользователю нажать на красный круг. Если круг будет выйдет за одну из сторон экрана, то он должен, появится с противоположной стороны.
+
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 2</title>
+</head> 
+  <style>
+    div{
+      border-radius: 50px;
+      height: 100px;
+      width: 100px;
+      border: 1px solid black;
+      align-content: center;
+      text-align: center;
+      background-color: orangered; 
+      position: absolute;
+      margin-top: 300px;
+    }
+  </style>
+<body>
+
+  <div id='div'><br><br>Скидка</div>
+ 
+  <script>
+
+  var div = document.getElementById('div');
+  var step = 0;
+
+  function catchMe(){
+    step = step + 150;
+    if (step>document.documentElement.clientWidth) {
+      step=0;
+    }
+    div.style.left = step + 'px';
+  }
+
+  div.addEventListener('mouseover', catchMe);
+
+  </script>
+
+</body>
+</html>

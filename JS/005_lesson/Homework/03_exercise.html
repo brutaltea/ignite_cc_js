@@ -1,0 +1,39 @@
+<!--
+  Задача 3
+
+Сделайте таймер обратного отсчета, который выполняет обратный отсчет от зданого числа до нуля. Когда доходит до нуля - выводит сообщение о том, что отсчет закончен.
+
+Например, var timer=10, каждую секунду на странице меняется числа - 10, 9, 8... и так далее до нуля. 
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 3</title> 
+
+<div id="timer">
+  10
+</div>
+
+<script>
+
+var timer = document.getElementById('timer').innerHTML;
+
+function printNumber(){
+  document.getElementById('timer').innerHTML = timer--;
+};
+
+var countdown = setInterval(printNumber, 1000);
+
+setTimeout(function(){
+	clearInterval(countdown); 
+	console.log('Countdown is over'); 
+}, 12000);
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

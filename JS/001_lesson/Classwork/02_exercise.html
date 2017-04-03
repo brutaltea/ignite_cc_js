@@ -10,23 +10,23 @@
 
 <script>
     
-    function isEmpty(obj){ // Создали функцию isEmpty(obj)
-        for (key in obj) { // Проверяем есть ли в объекте хоть одно свойство
-            return false; // Если есть возвращаем false
+    function isEmpty(obj){
+        for (key in obj){
+            return false;
         } 
-        return true; // Если нет - true
+        return true;
     };
 
-    var user = {        // Создаем объект
-        name: "Anton",  // со свойством name
-        age: 25         // и свойством age
+    var user = {
+        name: "Anton",
+        age: 25
     };
 
-    console.log(isEmpty(user)); // Проверяем функцию, результат false, так как у объекта есть два свойства
+    console.log(isEmpty(user));
 
-    var data = {}; // Создаем пустой объект
+    var data = {};
     
-    console.log(isEmpty(data)); // Проверяем функцию: результат true, так как у объекта свойств нету
+    console.log(isEmpty(data));
     
 </script>
 

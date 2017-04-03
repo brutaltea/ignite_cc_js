@@ -1,0 +1,48 @@
+<!-- 
+ ###Задача 1.
+
+Создайте страницу с кнопкой. Создайте код, который загрузит на страницу картинку img.jpg (файл находитя в папке classwork) асинхронно через секунду после загрузки страницы.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 1</title>
+</head> 
+	
+<body>
+ 
+  <button id='button'>Woof!</button>
+  <img src="" id='myImage'>
+
+  <script>
+
+    var button = document.getElementById('button');
+    var output = document.getElementById('output');
+    var myImage = document.getElementById('myImage');
+    
+    function getImg(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'img.jpg', true);
+      xhr.responseType = 'arraybuffer';
+      xhr.onload = function(e){
+        if (this.status == 200){
+          var uInt8Array = new Uint8Array(this.response);
+          var i = uInt8Array.length;
+          var binaryString = new Array(i);
+          while (i--){
+            binaryString[i] = String.fromCharCode(uInt8Array[i]);
+          };
+          var data = binaryString.join('');
+          var base64 = window.btoa(data);
+          myImage.src='data:image/jpg;base64,'+base64;
+        }
+      };
+      xhr.send();
+    };
+    button.addEventListener('click', getImg);
+
+  </script>
+
+</body>
+</html>

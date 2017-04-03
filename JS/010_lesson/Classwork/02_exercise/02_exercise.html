@@ -1,0 +1,39 @@
+
+<!--Задача 2.
+
+Создайте код, который загрузит файл phones.json и выведет все названия телефонов из него в виде списка. (файлы для задачи находятся в папке task_phone);--> 
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <button id="button">load!</button>
+
+  <script>
+
+    var button = document.getElementById('button');
+
+    function loadPhones(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'phones.json', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) return;
+        if (xhr.status != 200){
+          console.log(xhr.status + ': ' + xhr.statusText);
+        }else{
+          console.log(xhr.responseText);
+        };
+      };
+      xhr.send();
+    };
+
+    button.addEventListener('click', loadPhones);
+  </script>
+
+</body>
+
+</html>

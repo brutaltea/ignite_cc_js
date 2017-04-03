@@ -1,0 +1,35 @@
+<!--Задача 1
+Задача 3
+
+Напишите функцию, которая принимает один аргумент и возвращает его тип данных. Выполните обработку исключений в случае передачи двух и больше аргументов.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 3</title> 
+
+<script>
+
+function getType(a){
+  if (arguments.length>1){
+    console.log('too many arguments')
+  } else {
+    console.log( typeof a);
+    return typeof a;
+  };
+};
+
+getType(25);
+getType('str');
+getType({1:2, 3:4});
+getType(true);
+getType(1,2,3);
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

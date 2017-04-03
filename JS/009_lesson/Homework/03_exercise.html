@@ -1,0 +1,63 @@
+<!-- 
+###Задача 3.
+Создайте страницу с двумя полями ввода, кнопкой и элементом div с шириной и высотой 50px. Создайте сценарий, который по нажатию на кнопку будет перемещать div в координаты, указанные в полях ввода. В случае, если при нажатии кнопки хотя бы одно из полей ввода не заполнено, пользователь должен получить предупреждение, а событие click должно быть отменено.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 3</title>
+<style>
+  body{
+    margin: 0;
+    padding: 0
+  }
+  #div{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: orangered;
+    position: absolute;
+  }
+  #anchor{
+    float: left;
+  }
+</style>
+</head> 
+	
+<body>
+  <div id="anchor"></div>
+  <input id="x" placeholder="x">
+  <input id="y" placeholder="y">
+  <button id='btn'>Click Me</button>
+  <div id='div'></div>
+
+  <script>
+
+  var div = document.getElementById('div');
+  var button = document.getElementById('btn');
+  var x = document.getElementById('x');
+  var y = document.getElementById('y');
+  var anchor = document.getElementById('anchor');
+  console.log('left '+ anchor.getBoundingClientRect().left)
+  console.log('top '+ anchor.getBoundingClientRect().top)
+  console.log('right '+ anchor.getBoundingClientRect().right)
+  console.log('bottom '+ anchor.getBoundingClientRect().bottom)
+
+  function moveIt(){
+    if (!x.value||!y.value){
+      alert('Invalid position!')
+    }else{
+      div.style.left = anchor.getBoundingClientRect().left + x.value+'px';
+      div.style.top = anchor.getBoundingClientRect().top + y.value+'px';
+      console.log('x: '+div.getBoundingClientRect().left);
+      console.log('y: '+div.getBoundingClientRect().top)
+    };
+  };
+    
+    button.addEventListener('click', moveIt);
+
+  </script>
+
+</body>
+</html>

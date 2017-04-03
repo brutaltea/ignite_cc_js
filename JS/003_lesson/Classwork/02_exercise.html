@@ -23,15 +23,15 @@ alert( "Произведение=" + calculator.mul() );
 
 <script>
 
-function Calculator() {                     // Создаем конструктор
-  this.read = function() {                  // Принимаем значения a и b от пользователя
+function Calculator() {
+  this.read = function() {
     this.a = +prompt('Введите а', '');
     this.b = +prompt('Введите b', '');
   };
-  this.sum = function() {                   // Возвращаем результат сложения
+  this.sum = function() {
     return this.a + this.b;
   };
-  this.mul = function() {                   // Возвращаем результат умножения
+  this.mul = function() {
     return this.a * this.b;
   };
 };

@@ -22,27 +22,25 @@ strCount({
 
 <script>
 
-var arr = {
+function strCount(obj){
+  var counter = 0;
+  for (var key in obj) {        
+    if (typeof (obj[key]) === 'string'){
+      counter++;            
+    } else if (typeof (obj[key]) === 'object'){
+      counter += strCount(obj[key]);
+    };
+  };
+  return counter;
+};
+
+console.log(strCount({
   first: "1",
   second: "2",
   third: false,
   fourth: ["anytime",2,3,4],
   fifth:  null
-  };
-
-var counter = 0;
-
-function strCount(obj){
-    for (var key in obj) {        
-        if (typeof (obj[key]) == 'string'){
-            counter++;            
-            };
-        };
-    };
-
-strCount(arr);
-console.log(counter);// В случае обьекта с вложенным массивом результат неверен, должно быть 3 а не 2. 
-
+  }));
 
 </script>
 

@@ -31,33 +31,33 @@ army[5](); // стрелок выводит 10, а должен 5.
 
 <script>
 
-// Проблема заключается в цикле for, функция берет данный из уже отработавшего цикла в котором i=10 а не индекс функции в массиве.
-function makeArmy(){                              //Первый способ:  
-      var shooters = [];
-      for (var i = 0; i < 10; i++){
-            var shooter = function func(){        // Используем Function Expression чтобы использовать правильную переменную 
-                  console.log ( 'Fisrt way result:' + func.i ); 
-            };
-            shooter.i = i;                        // Привязываем правильное значение
-            shooters.push(shooter);
-      };
-      return shooters;
+
+function makeArmy(){
+  var shooters = [];
+  for (var i = 0; i < 10; i++){
+    var shooter = function func(){
+      console.log ( 'Fisrt way result:' + func.i ); 
+    };
+    shooter.i = i;
+    shooters.push(shooter);
+  };
+  return shooters;
 };
 var army = makeArmy();
 army[0]();
 army[5]();
 
 function makeArmy1(){
-      var shooters1 = [];
-      for (var i = 0; i < 10; i++){
-            var shooter1 = (function(j){           // Дополнительная переменная чтобы записать в нее правильное значение i
-                  return function(){
-                        console.log ( 'Second way result:' + j );
-                  };
-            })(i);
-            shooters1.push(shooter1);
+  var shooters1 = [];
+  for (var i = 0; i < 10; i++){
+    var shooter1 = (function(j){
+      return function(){
+        console.log ( 'Second way result:' + j );
       };
-      return shooters1;
+    })(i);
+    shooters1.push(shooter1);
+  };
+  return shooters1;
 };
 var army1 = makeArmy1();
 army1[1]();

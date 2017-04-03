@@ -1,0 +1,33 @@
+<!--
+###Задача 1 
+
+Представьте, что в JavaScript нет метода call, есть только метод apply. Используя apply, напишите метод call. 
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 1</title> 
+
+<script>
+
+var obj = {foo: 'bar'};
+
+function foobar(){
+  console.log(this.foo);
+}
+
+function newCall(){
+  this.apply([].shift.apply(arguments, arguments));
+};
+
+Function.prototype.call = newCall;
+foobar.call(obj);
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

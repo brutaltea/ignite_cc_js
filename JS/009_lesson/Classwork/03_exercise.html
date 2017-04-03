@@ -1,0 +1,40 @@
+<!-- 
+  ###Задача 3.
+
+Создайте поле ввода. При помощи событий клавиатуры сделайте так, чтобы в поле можно было вводить только цифры.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 3</title>
+</head> 
+	
+<body>
+ 
+  <input id='input'>
+
+  <script>
+
+  var input = document.getElementById('input');
+
+  function getChar(e){
+    if (e.which != 0 && e.charCode != 0){
+      if (e.which < 32) return null;
+        return String.fromCharCode(e.which);
+      };
+      return null;
+    };
+  
+  input.onkeypress = function(e){
+    var char = getChar(e);
+    if (char < '0' || char > '9'){
+      console.log('letter');
+      return false;
+      };
+  };
+
+  </script>
+
+</body>
+</html>

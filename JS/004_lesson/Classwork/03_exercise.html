@@ -1,0 +1,32 @@
+<!--
+###Задача 3 
+
+Напишите функцию joinArgs, которая выводит свои аргументы, разделенные символом  ‘*’ на экран в виде строки. 
+Используйте прием “одалживания методов”.  У вас должно получиться: 
+```
+joinArgs(1,2,3) // 1*2*3 
+joinArgs('hello', 'world', '!') // hello*world*!
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задача 3</title> 
+
+<script>
+
+function joinArgs(){
+  arguments.join = [].join;
+  alert(arguments.join("*"));
+};
+
+joinArgs(1, 2, 3);
+joinArgs("hello", "world", "!"); 
+
+</script>
+
+</head> 	
+<body> 
+<!-- html here --> 
+</body>
+</html>

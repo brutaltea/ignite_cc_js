@@ -1,0 +1,70 @@
+<!-- 
+###Задача 1.
+
+Создайте страницу с 3 элементами div. Напишите сценарий, который будет произвольно менять положение этиъ элементов на странице каждую секунду.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 1</title>
+
+<style>
+  div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    position: absolute;
+    float: left;
+  }
+  #red {
+    margin-left: 15px;
+    background-color: red;
+  }
+  #green {
+    margin-left: 75px;
+    background-color: green;
+  }
+  #blue {
+    margin-left: 135px;
+    background-color: blue;
+  }
+</style>
+
+</head> 
+	
+<body>
+
+  <div id='red'></div>
+  <div id='green'></div>
+  <div id='blue'></div>
+
+  <script>
+
+  var divs = document.getElementsByTagName('div');
+
+  function randomPosition(){
+    var min = 1;
+    var max = 1000;
+    var counter = 0;
+    var timerId = setTimeout(function go() {
+      for (var i = 0; i<divs.length; i++){
+        var selected = divs[i];
+        console.log(selected.id);
+        selected.style.left =  min + Math.random() * (max - min) + 'px';
+        console.log('X: ' + selected.offsetLeft);
+        selected.style.top =  min + Math.random() * (max - min) + 'px';
+        console.log('Y: ' + selected.offsetTop);
+      };
+      if (counter < 60)  setTimeout(go, 1000);
+          counter++;
+    }, 1000);
+  }
+
+randomPosition();
+
+  </script>
+
+</body>
+</html>

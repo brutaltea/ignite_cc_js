@@ -1,0 +1,56 @@
+<!-- 
+Задача 2.
+
+При наведении мыши на элемент, на нём возникает событие mouseover, при удалении мыши с элемента – событие mouseout. Зная это, напишите JS-код, который будет делать так, что при наведении на элемент, если у него есть атрибут data-tooltip – над ним будет показываться подсказка с содержимым этого атрибута. Например, две кнопки:
+
+<button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+<button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 2</title>
+  <style>
+    button{
+      margin-top: 50px;
+      float: left;
+    }
+    div{
+      display: block;
+      text-align: center;    
+      background-color: blue;
+      position: absolute;
+    }
+  </style>
+</head> 
+	
+<body>
+
+  <button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+  <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+  <script>
+
+  document.onmouseover = function(e) {
+    tooltip = document.createElement('div');
+    var target = e.target;
+    if (target.getAttribute('data-tooltip')){
+      //console.log(target.getAttribute('data-tooltip'))
+      target.insertAdjacentElement("beforeBegin", tooltip);
+      tooltip.innerHTML = target.getAttribute('data-tooltip');
+      tooltip.style.left = target.getBoundingClientRect().left + 'px';
+      tooltip.style.top = target.getBoundingClientRect().bottom - target.getBoundingClientRect().top + 'px';
+    };
+  };
+
+  document.onmouseout = function(event){
+    tooltip.remove()
+  };
+
+  
+
+  </script>
+
+</body>
+</html>

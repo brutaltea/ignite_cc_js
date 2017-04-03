@@ -1,0 +1,71 @@
+<!-- ###Задача 2.
+
+Модифицируйте код предыдущего задания так, чтобы максимальное время обработки запроса не превышало 20 секунд и при первышении этого времени запрос был отменен, а пользователь видел на экране сообщение об ошибке.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 2</title>
+</head> 
+	
+<body>
+ 
+ <div id="first"></div>
+
+ <div id="second"></div>
+
+
+  <script>
+
+  var first = document.getElementById('first');
+  var second = document.getElementById('second');
+
+   window.onload = function(){
+    function loadPages(){
+      var firstReq = new XMLHttpRequest();
+      firstReq.open("GET", "firstDonor.html");
+      var secondReq = new XMLHttpRequest();
+      secondReq.open("GET", "secondDonor.html");
+
+      firstReq.onreadystatechange = function(){
+        if (firstReq.readyState == 4){
+          if (firstReq.status == 200){
+            document.getElementById("first").innerHTML = firstReq.responseText;
+          }else{
+            document.getElementById("first").innerHTML = "Whoops, something went wrong!";
+          };
+        };
+      };
+
+      secondReq.onreadystatechange = function(){
+        if (secondReq.readyState == 4){
+          if (secondReq.status == 200){
+            document.getElementById("second").innerHTML = secondReq.responseText;
+          }else{
+            document.getElementById("second").innerHTML = "Whoops, something went wrong!";
+          };
+        };
+      };
+
+      firstReq.send();
+      firstReq.ontimeout = function() {
+        firstReq.abort();
+        alert('ERROR');
+      };
+      secondReq.send();
+      secondReq.ontimeout = function() {
+        secondReq.abort();
+        alert('ERROR');
+      };
+
+    };
+
+    loadPages();
+  };
+    </script>
+
+  </script>
+
+</body>
+</html>

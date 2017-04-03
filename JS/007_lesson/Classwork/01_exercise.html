@@ -1,0 +1,52 @@
+<!-- 
+###Задача 1. Создайте страницу. Разместите на ней произвольное количеством элементов. Разработайте сценарий, который будет по очереди перемещать span с текстом и интервалом в 400мс:
+
+-Перед элементом.
+-Внутри элемента перед тектом
+-Внутри элемента после текста.
+-После элемента.
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta charset="utf-8">
+<title>Задание 1</title>
+
+</head>
+<body>
+
+<div id ='div'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+<style> 
+#div {
+    border: 1px solid black;
+  }
+	#span {
+		background-color: orangered;
+	}
+  
+</style>
+<script>
+  var positions = ['beforeBegin', `afterBegin`, `beforeEnd`, `afterEnd`];
+
+  var div = document.getElementById('div');
+
+  function addSpan(a){
+    var i = 0;
+    var timerId = setTimeout(function go() {
+    if (document.getElementById('span')){
+      span.remove();
+      console.log('span removed');
+    };
+    console.log('span inserted ' + a[i] + ' of div');
+    div.insertAdjacentHTML(a[i], "<span id='span'>The span of mine!</span>");
+    if (i < 3) setTimeout(go, 400);
+    i++;
+  }, 400);
+};
+
+addSpan(positions);
+
+</script>
+
+</body>
+</html>

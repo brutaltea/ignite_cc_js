@@ -1,0 +1,77 @@
+<!-- 
+Задача 1.
+
+Создайте регистрационную форму: логин, пароль, телефон и кнопка "Отправить". По нажатию на кнопку "Отправить", проверьте корректность ввода данных с помощью JavaScript.
+
+Логин - не должен содержать цифры.
+Пароль - не дожен содержать знак $.
+Телефон - должен содержать только цифры.
+Закрасьте фон поля ввода в красный цвет, если были введены неправильные данные.
+
+Используйте для решение данной задачи методы для работы со строками или регулярные выражения: link
+--> 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Задание 1</title>
+<style>
+
+  input{
+    float: left;
+    clear: left;
+    margin-bottom: 5px;
+  }
+  button {
+    float: left;
+    clear: left;
+  }
+
+</style>
+</head> 
+	
+<body>
+
+  <input id="login">
+  <input id="password">
+  <input id="phone">
+  <button id='button'>Отправить</button>
+
+
+  <script>
+
+    var incorrectLogin = /\d/;
+    var incorrectPassword = /\$/;
+    var incorrectPhone = /\D/;
+
+    var login = document.getElementById('login');
+    var password = document.getElementById('password');
+    var phone = document.getElementById('phone');
+
+    var button = document.getElementById('button');
+
+
+    function clickHandler(){
+      if (login.value.match(incorrectLogin)||login.value == ''){
+        login.style.backgroundColor = 'red';
+      }else{
+        login.style.backgroundColor = 'green'
+      };
+      if (password.value.match(incorrectPassword)||password.value == ''){
+        password.style.backgroundColor = 'red';
+      }else{
+        password.style.backgroundColor = 'green'
+      };
+      if (phone.value.match(incorrectPhone)||phone.value == ''){
+        phone.style.backgroundColor = 'red';
+      }else{
+        phone.style.backgroundColor = 'green'
+      };
+    };
+
+    button.addEventListener('click', clickHandler);
+
+  </script>
+
+</body>
+</html>

@@ -16,23 +16,23 @@
 
     var value = 0;
 
-function f() {
-    if (1) {
-        value = true;             // Меняем глобальное значение переменной value
-    } else {
-        var value = false;        // Меняем локальное значение переменной value
-        }
-    alert( value );
+function f(){
+  if (1){
+    value = true;
+  }else{
+    var value = false;
+  };
+  alert( value );
 };
 f();                                // Результат true
 
-function f1() {
-    if (1) {
-        value = true;             // Меняем глобальное значение переменной value
-    } else {
-         value = false;           // Меняем глобальное значение переменной value
-    }
-    alert( value );
+function f1(){
+  if (1) {
+    value = true;
+  }else{
+    value = false;
+  };
+  alert( value );
 };
 f1();                                // Результат не изменился потому что выполняется первое условие if(1)
 
