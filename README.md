@@ -1,1 +1,2 @@
-ignite_cc_js
+Classwork/homework for Ignite
+Mykola Lubenets
