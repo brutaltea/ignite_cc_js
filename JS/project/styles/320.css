@@ -7,13 +7,18 @@ body{
   margin: 0;
 }
 #slide-holder{
-  background-image: none;
+  background-image: url('images/header-background-0.jpg');
   height: 300px;
+  padding-top: 100px;
 }
 #header{
+  position: fixed;
+  top: 0;
   height: 100px;
-  box-shadow:0 0 0 50px rgba(0, 0, 0, 0.3) inset;
-  padding: 0 15px 0 15px;
+  width: 100%;
+  background-color: black;
+  box-shadow:0 0 0 185px rgba(0, 0, 0, 0.3) inset;
+  padding: 0 0 0 0;
 }
 #logo{
   height: 100px;
@@ -68,20 +73,24 @@ body{
   font-weight: 700;
   text-transform: uppercase;
   color: #ffffff;
+   cursor: pointer;
   margin-top: 41px;
 }
 .nav li a:hover{
   color: #ffe600;
 }
-#slider{
-  margin-top: 0px;
-  background-image: url('images/header-background.jpg');
-  height: 200px;
+.slider{
+  display: none;
+  padding-top: 200px;
+  height: 300px;
   box-shadow:0 0 0 320px rgba(0, 0, 0, 0.3) inset;
   padding: 0 0 0 0;
 }
-#slider-header{
-  padding-top: 34px;
+.active-slider{
+  display: block;
+}
+.slider-header{
+  padding-top: 74px;
   margin: auto;
   display: block;
   width: 300px;
@@ -95,14 +104,14 @@ body{
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-#slider-button{
+.slider-button{
   width: 230px;
   height: 57px;
   background-color: #ffe600;
   cursor: pointer;
   margin: auto;
 }
-#slider-button span{
+.slider-button span{
   display: block;
   color: #131316;
   font-family: Oswald;
@@ -112,22 +121,44 @@ body{
   padding-top: 15px;
   margin-left: 51px;
 }
-#slider-arrow-left{
+.slider-arrow-left{
   display: none;
   cursor: pointer;
   float: left;
   margin:auto;
   margin-top: 193px;
 }
-#slider-arrow-right{
+.slider-arrow-right{
   display: none;
   cursor: pointer;
   float: right;
   margin:auto;
   margin-top: 193px;
 }
-.wrapper-light{
+#about .wrapper-light{
   text-align: center;
+  height: 1500px;
+}
+#services .wrapper-light{
+  text-align: center;
+  height: 1000px;
+}
+#works .wrapper-light{
+  text-align: center;
+  height: 1300px;
+}
+#clients .wrapper-light{
+  text-align: center;
+  height: 400px;
+}
+#contacts .wrapper-light{
+  text-align: center;
+  height: 800px;
+}
+
+.services-img-wrapper{
+  height: 135px;
+  padding: 0 0 0 0;
 }
 .content-title{
   margin-top: 30px;
@@ -215,7 +246,10 @@ body{
 .wrapper-dark{
   background-color: #12191d;
   text-align: center;
-  height: 740px;
+  height: 800px;
+}
+.methods-img-wrapper{
+  height: 60px;
 }
 .content-heading-yellow{
   padding-top: 23px;
@@ -241,7 +275,7 @@ body{
   display: block;
   margin-right: 10px;
   width: 145px;
-  height: 170px;
+  height: 190px;
   margin-bottom: 10px;
 }
 .content-item-dark-heading{
@@ -299,7 +333,8 @@ body{
   padding-bottom: 30px;
 }
 #thumbnail{
-  height: 440px;
+  height: 480px;
+  background-color: #ffe600;
 }
 #thumbnail img{
   float: left;
@@ -307,6 +342,7 @@ body{
   padding: 0;
   width: 33.33%;
   height: 120px;
+  cursor: pointer;
 }
 #down-arrow{
   width: 60px;
@@ -574,12 +610,6 @@ body{
 #clients-wrapper :last-child{
   margin-right: 0;
 }
-#clients-wrapper img{
-  display: none;
-}
-#clients-wrapper :first-child{
-  display: block;
-}
 .client-feedback{
   margin: auto;
   padding-top: 36px;
@@ -598,7 +628,7 @@ body{
   font-weight: 400;
 }
 #clients .wrapper-dark{
-  height: 250px;
+  height: 300px;
 }
 #contacts-wrapper{
   margin: auto;
@@ -713,10 +743,37 @@ body{
 #text {
   display: none;
 }
-/*#opera-clear{
+.feedback{
+  display: none;
+}
+.active {
   display: block;
-  padding-top: 300px;
-  height: 100px;
-  width: 320px;
-  margin-bottom: -100px;
-}*/
+}
+.error-area{
+  border: 1px solid #12191d;
+  margin: auto;
+  float: left;
+  height: 20px;
+  width: 30%;
+  color: red;
+}
+#error-wrapper{
+  margin: auto;
+  width: 100%;
+  
+}
+#mail-error{
+  color: red;
+}
+.person-block{
+  display: none;
+}
+.person-block-active{
+  display: block;
+}
+.partners{
+  display: none;
+}
+.partners-active{
+  display: block;
+}

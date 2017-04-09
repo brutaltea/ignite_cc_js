@@ -8,17 +8,23 @@ body{
   margin: 0;
 }
 #slide-holder{
-  background-image: url('images/header-background.jpg');
-  height: 1050px;
+  background-image: url('images/header-background-0.jpg');
+  height: 950px;
+  padding-top: 100px;
 }
 #header{
+  position: fixed;
+  top: 0;
   height: 100px;
-  box-shadow:0 0 0 50px rgba(0, 0, 0, 0.3) inset;
-  padding: 0 216px 0 216px;
+  width: 100%;
+  box-shadow:0 0 0 185px rgba(0, 0, 0, 0.3) inset;
+  padding: 0 0 0 0;
 }
 #logo{
   height: 100px;
   margin: auto;
+  margin: 300px;
+  margin-right: 0;
   margin-top: 17px;
   float: left;
   color: #ffffff;
@@ -49,6 +55,7 @@ body{
 .nav{
   list-style-type: square;
   margin: auto;
+  margin-right: 300px;
   float: right;
 }
 .nav :first-child{
@@ -68,18 +75,23 @@ body{
   font-weight: 700;
   text-transform: uppercase;
   color: #ffffff;
+  cursor: pointer;
   margin-top: 41px;
 }
 .nav li a:hover{
   color: #ffe600;
 }
-#slider{
-  margin-top: 290px;
+.slider{
+  display: none;
+  margin-top: 300px;
   height: 370px;
   box-shadow:0 0 0 185px rgba(0, 0, 0, 0.3) inset;
   padding: 0 275px 0 275px;
 }
-#slider-header{
+.active-slider{
+  display: block;
+}
+.slider-header{
   padding-top: 64px;
   margin: auto;
   display: block;
@@ -94,14 +106,14 @@ body{
   text-transform: uppercase;
   margin-bottom: 48px;
 }
-#slider-button{
+.slider-button{
   width: 230px;
   height: 57px;
   background-color: #ffe600;
   cursor: pointer;
   margin: auto;
 }
-#slider-button span{
+.slider-button span{
   display: block;
   color: #131316;
   font-family: Oswald;
@@ -111,13 +123,13 @@ body{
   padding-top: 15px;
   margin-left: 51px;
 }
-#slider-arrow-left{
+.slider-arrow-left{
   cursor: pointer;
   float: left;
   margin:auto;
   margin-top: 193px;
 }
-#slider-arrow-right{
+.slider-arrow-right{
   cursor: pointer;
   float: right;
   margin:auto;
@@ -166,7 +178,7 @@ body{
 .items-light{
   width: 1166px;
   margin: auto;
-  height: 240px;
+  height: 300px;
   padding-bottom: 67px;
 }
 .items-light :last-child{
@@ -185,6 +197,10 @@ body{
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
+}
+.services-img-wrapper{
+  height: 135px;
+  padding: 0 0 0 0;
 }
 .content-item-light-descr{
   display: block;
@@ -256,6 +272,9 @@ body{
   margin: auto;
   margin-top: 27px;
 }
+.methods-img-wrapper{
+  height: 60px;
+}
 .photo-nav{
   list-style-type: square;
 }
@@ -276,6 +295,7 @@ body{
   font-weight: 400;
   text-transform: uppercase;
   color: #515151;
+  cursor: pointer;
 }
 .photo-nav li a:hover{
   color: #ffe600;
@@ -287,6 +307,7 @@ body{
 }
 #thumbnail{
   height: 500px;
+  background-color: #ffe600;
 }
 #thumbnail img{
   float: left;
@@ -294,6 +315,7 @@ body{
   padding: 0;
   width: 16.666%;
   height: 250px;
+  cursor: pointer;
 }
 #down-arrow{
   width: 60px;
@@ -390,7 +412,6 @@ body{
   width: 70px;
   height: 70px;
   float: left;
-  background-color: yellow;
   border-radius: 50px;
   margin-right: 29px;
 }
@@ -533,9 +554,15 @@ body{
   display: block;
   padding-top: 45px;
 }
+.person-block{
+  display: none;
+}
+.person-block-active{
+  display: block;
+}
 #clients-wrapper{
   height: 200px;
-  width: 1020px;
+  width: 100px;
   margin: auto;
 }
 #clients-wrapper :last-child{
@@ -671,10 +698,31 @@ body{
   margin-top: 20px;
   margin-left: 20px;
 }
-#text {
+.feedback{
   display: none;
 }
-
-@media (max-width: 800px) {
-
+.active {
+  display: block;
+}
+.error-area{
+  border: 1px solid #12191d;
+  margin: auto;
+  float: left;
+  height: 20px;
+  width: 30%;
+  color: red;
+}
+#error-wrapper{
+  margin: auto;
+  width: 100%;
+  
+}
+#mail-error{
+  color: red;
+}
+.partners{
+  display: none;
+}
+.partners-active{
+  display: block;
 }

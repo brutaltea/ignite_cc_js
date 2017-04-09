@@ -9,6 +9,7 @@
 <link rel='stylesheet' media='screen and (min-width: 992px) and (max-width: 1199px)' href='styles/992.css'>
 <link rel='stylesheet' media='screen and (min-width: 687px) and (max-width: 991px)' href='styles/687.css'>
 <link rel='stylesheet' media='screen and (max-width: 686px)' href='styles/320.css'>
+<script src="scripts/jquery-3.2.0.min.js"></script>
 </head> 	
 <body> 
   <div id="container">
@@ -20,23 +21,47 @@
             <span>THEME</span>
           </div>
           <ul class="nav">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">SERVICES</a></li>
-            <li><a href="#">WORK</a></li>
-            <li><a href="#">ABOUT</a></li>
-            <li><a href="#">CLIENTS</a></li>
-            <li><a href="#">CONTACT</a></li>
+            <li><a id="homeBtn">HOME</a></li>
+            <li><a id="servicesBtn" >SERVICES</a></li>
+            <li><a id="workBtn">WORK</a></li>
+            <li><a id="aboutBtn">ABOUT</a></li>
+            <li><a id="clientsBtn" >CLIENTS</a></li>
+            <li><a id="contactBtn">CONTACT</a></li>
           </ul>
         </div><!--header ends-->
-        <div id="slider">
-          <div id="slider-arrow-left">
+        <div class="slider active-slider">
+          <div class="slider-arrow-left">
             <img src="styles/images/slider-arrow-left.png" alt="">
           </div>
-          <div id="slider-arrow-right">
+          <div class="slider-arrow-right">
             <img src="styles/images/slider-arrow-right.png" alt="">
           </div>
-            <span id="slider-header">BRANDING HAVE ANOTHER DEFINITION</span>
-          <div id="slider-button">
+            <span class="slider-header">BRANDING HAVE ANOTHER DEFINITION</span>
+          <div class="slider-button">
+            <span>buy this theme</span>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="slider-arrow-left">
+            <img src="styles/images/slider-arrow-left.png" alt="">
+          </div>
+          <div class="slider-arrow-right">
+            <img src="styles/images/slider-arrow-right.png" alt="">
+          </div>
+            <span class="slider-header">Lorem ipsum dolor sit amet</span>
+          <div class="slider-button">
+            <span>buy this theme</span>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="slider-arrow-left">
+            <img src="styles/images/slider-arrow-left.png" alt="">
+          </div>
+          <div class="slider-arrow-right">
+            <img src="styles/images/slider-arrow-right.png" alt="">
+          </div>
+            <span class="slider-header">Curabitur non nulla sit tempus convallis</span>
+          <div class="slider-button">
             <span>buy this theme</span>
           </div>
         </div>
@@ -51,22 +76,22 @@
           tesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt ni dictum porta.</span>
           <div class="items-light">
             <div class="content-item-light">
-              <img src="styles/images/services/web-des.png" alt="">
+              <div class="services-img-wrapper"><img src="styles/images/services/web-des.png"class="hover-img"alt=""></div>
               <span class="content-item-light-heading">WEB DESIGN</span>
               <span class="content-item-light-descr">Donec sollicitudin molestie malesuada. Curabitur aliquet quam id dui posuere blandit.</span>
             </div>
             <div class="content-item-light">
-              <img src="styles/images/services/graph-des.png" alt="">
+              <div class="services-img-wrapper"><img src="styles/images/services/graph-des.png"class="hover-img" alt=""></div>
               <span class="content-item-light-heading">GRAPHIC DESIGN</span>
               <span class="content-item-light-descr">Donec sollicitudin molestie malesuada. Curabitur aliquet quam id dui posuere blandit.</span>
             </div>
             <div class="content-item-light">
-              <img src="styles/images/services/photo.png" alt="">
+              <div class="services-img-wrapper"><img src="styles/images/services/photo.png" class="hover-img"alt=""></div>
               <span class="content-item-light-heading">PHOTOGRAPHY</span>
               <span class="content-item-light-descr">Donec sollicitudin molestie malesuada. Curabitur aliquet quam id dui posuere blandit.</span>
             </div>
             <div class="content-item-light">
-              <img src="styles/images/services/dev.png" alt="">
+              <div class="services-img-wrapper"><img src="styles/images/services/dev.png" class="hover-img" alt=""></div>
               <span class="content-item-light-heading">DEVELOPING</span>
               <span class="content-item-light-descr">Donec sollicitudin molestie malesuada. Curabitur aliquet quam id dui posuere blandit.</span>
             </div>
@@ -77,32 +102,32 @@
           <span class="content-descr-dark">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. </span>
           <div class="items-dark">
             <div class="content-item-dark">
-              <img src="styles/images/services/analyse.png" alt="">
+              <div class="methods-img-wrapper"><img class="hover-img" src="styles/images/services/analyse.png" alt=""></div>
               <span class="content-item-dark-heading">ANALYSE</span>
               <span class="content-item-dark-descr">Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam.</span>
             </div>
             <div class="content-item-dark">
-              <img src="styles/images/services/preparing.png" alt="">
+              <div class="methods-img-wrapper"><img class="hover-img" src="styles/images/services/preparing.png" alt=""></div>
               <span class="content-item-dark-heading">PREPARING</span>
               <span class="content-item-dark-descr">Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posu ere blandit</span>
             </div>
             <div class="content-item-dark">
-              <img src="styles/images/services/working.png" alt="">
+              <div class="methods-img-wrapper"><img class="hover-img" src="styles/images/services/working.png" alt=""></div>
               <span class="content-item-dark-heading">WORKING</span>
               <span class="content-item-dark-descr">Vivamus suscipit tortor eget felis porttitor volutpat. </span>
             </div>
             <div class="content-item-dark">
-              <img src="styles/images/services/finalyse.png" alt="">
+              <div class="methods-img-wrapper"><img class="hover-img" src="styles/images/services/finalyse.png" alt=""></div>
               <span class="content-item-dark-heading">FINALYSE</span>
               <span class="content-item-dark-descr">Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id.</span>
             </div>
             <div class="content-item-dark">
-              <img src="styles/images/services/testing.png" alt="">
+              <div class="methods-img-wrapper"><img class="hover-img" src="styles/images/services/testing.png" alt=""></div>
               <span class="content-item-dark-heading">TESTING</span>
               <span class="content-item-dark-descr">Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere blandit</span>
             </div>          
             <div class="content-item-dark">
-              <img src="styles/images/services/deliver.png" alt="">
+              <div class="methods-img-wrapper"><img class="hover-img" src="styles/images/services/deliver.png" alt=""></div>
               <span class="content-item-dark-heading">DELIVER</span>
               <span class="content-item-dark-descr">Vivamus suscipit tortor eget felis porttitor volutpat. Curest bitur.</span>
             </div>
@@ -119,26 +144,26 @@
           tesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt ni dictum porta.</span>
           <div id="nav-wrapper">
             <ul class="photo-nav">
-              <li><a href="#">ALL</a></li>
-              <li><a href="#">WEB DESIGN</a></li>
-              <li><a href="#">GRAPHIC DESIGN</a></li>
-              <li><a href="#">PHOTOGRAPHY</a></li>
-              <li><a href="#">ILLUSTRATION</a></li>
+              <li><a id="allBtn">ALL</a></li>
+              <li><a id="webdesBtn">WEB DESIGN</a></li>
+              <li><a id="graphdesBtn">GRAPHIC DESIGN</a></li>
+              <li><a id="phtoBtn">PHOTOGRAPHY</a></li>
+              <li><a id="illusBtn">ILLUSTRATION</a></li>
             </ul>
           </div>
           <div id="thumbnail">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
-            <img src="styles/images/thumbnail-photo.png" alt="">
+            <img class="thumbnail-img illus" src="styles/images/thumbnail-photo-1.png" alt="">
+            <img class="thumbnail-img phto" src="styles/images/thumbnail-photo.png" alt="">
+            <img class="thumbnail-img graphdes" src="styles/images/thumbnail-photo-2.png" alt="">
+            <img class="thumbnail-img webdes" src="styles/images/thumbnail-photo-3.png" alt="">
+            <img class="thumbnail-img webdes" src="styles/images/thumbnail-photo-3.png" alt="">
+            <img class="thumbnail-img webdes" src="styles/images/thumbnail-photo-3.png" alt="">
+            <img class="thumbnail-img graphdes" src="styles/images/thumbnail-photo-2.png" alt="">
+            <img class="thumbnail-img graphdes" src="styles/images/thumbnail-photo-2.png" alt="">
+            <img class="thumbnail-img phto" src="styles/images/thumbnail-photo.png" alt="">
+            <img class="thumbnail-img phto" src="styles/images/thumbnail-photo.png" alt="">
+            <img class="thumbnail-img illus" src="styles/images/thumbnail-photo-1.png" alt="">
+            <img class="thumbnail-img illus" src="styles/images/thumbnail-photo-1.png" alt="">
           </div>
           <div id="down-arrow">
             <img src="styles/images/down-arrow.png" alt="">
@@ -153,7 +178,7 @@
           <span class="content-heading-white">WE ARE PROUD OF THESE NUMBERS</span>
           <span class="content-descr-dark">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere.</span>
           <div id="numbers-wrapper">
-            <div class="yellow-border">
+            <div class="yellow-border" id='numbers-trigger'>
               <span class="yellow-border-numbers">1600</span>
               <span class="yellow-border-text">HAPPY CLIENTS</span>
             </div>
@@ -166,7 +191,7 @@
               <span class="yellow-border-text">AWARDS</span>
             </div>
             <div class="yellow-border">
-              <span class="yellow-border-numbers">20 000</span>
+              <span class="yellow-border-numbers">20000</span>
               <span class="yellow-border-text">COFFEE DRINKS</span>
             </div>
           </div>
@@ -183,28 +208,28 @@
           <div id="wrapper-about">
             <div class="about-item">
               <div class="yellow-circle">
-                <img src="styles/images/time.png" alt="">
+                <img class="hover-img" src="styles/images/time.png" alt="">
               </div>
               <span class="yellow-circle-heading content-title">ON TIME PROJECTS</span>
               <span class="yellow-circle-descr content-descr-light">Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt ni dictum porta.Cras ultricies ligula sed magna dictum est ontar des lorem ipsum.</span>
             </div>
             <div class="about-item">
               <div class="yellow-circle">
-                <img src="styles/images/support.png" alt="">
+                <img class="hover-img" src="styles/images/support.png" alt="">
               </div>
               <span class="yellow-circle-heading content-title">FULLY SUPPORT</span>
               <span class="yellow-circle-descr content-descr-light">Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt ni dictum porta.Cras ultricies ligula sed magna dictum est ontar des lorem ipsum.</span>
             </div>
             <div class="about-item">
               <div class="yellow-circle">
-                <img src="styles/images/exp.png" alt="">
+                <img class="hover-img" src="styles/images/exp.png" alt="">
               </div>
               <span class="yellow-circle-heading content-title">PROFESSIONAL EXPERIENCE</span>
               <span class="yellow-circle-descr content-descr-light">Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt ni dictum porta.Cras ultricies ligula sed magna dictum est ontar des lorem ipsum.</span>
             </div>
             <div class="about-item">
               <div class="yellow-circle">
-                <img src="styles/images/commu.png" alt="">
+                <img class="hover-img" src="styles/images/commu.png" alt="">
               </div>
               <span class="yellow-circle-heading content-title">COMMUNICATIVE TEAM</span>
               <span class="yellow-circle-descr content-descr-light">Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit 
@@ -216,63 +241,159 @@
           <span class="content-descr-light">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere.</span>
           <div id="team-wrapper">
             <div class="team-item">
-              <img src="styles/images/team.png" alt="">
-              <span class="team-name">JOHN DOE</span>
+              <img id='member-img-1' src="styles/images/member-1.png" alt="">
+              <span class="team-name">JOHN DOA</span>
               <span class="team-position">CREATIVE DIRECTOR</span>
               <div class="horizontal-line-grey"></div>
             </div>
             <div class="team-item">
-              <img src="styles/images/team.png" alt="">
-              <span class="team-name">JOHN DOE</span>
+              <img id='member-img-2' src="styles/images/member-2.png" alt="">
+              <span class="team-name">JOHN DOB</span>
               <span class="team-position">ART DIRECTOR</span>
               <div class="horizontal-line-grey"></div>
             </div>
             <div class="team-item">
-              <img src="styles/images/team.png" alt="">
-              <span class="team-name">JOHN DOE</span>
+              <img id='member-img-3' src="styles/images/member-3.png" alt="">
+              <span class="team-name">JOHN DOC</span>
               <span class="team-position">WEB DEVELOPER</span>
               <div class="horizontal-line-grey"></div>
             </div>
             <div class="team-item">
-              <img src="styles/images/team.png" alt="">
+              <img id='member-img-4' src="styles/images/member-4.png" alt="">
               <span class="team-name">JOHN DOE</span>
               <span class="team-position">PHOTOGRAPHER</span>
               <div class="horizontal-line-grey"></div>
             </div>
           </div>
        </div>
-       <div id="wrapper-black">
-        <div class="person">
-         <span class="person-name">JOHN DOE</span>
-         <span class="person-descr">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id 
-          dui posuere blandit. Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus 
-          convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt ni 
-          dictum porta.</span>
-         <div class="person-link"><img src="styles/images/facebook.png" alt=""></div>
-         <div class="person-link"> <img src="styles/images/twitter.png" alt=""></div>
+       <div class="person-block person-block-1 person-block-active">
+        <div id="wrapper-black">
+          <div class="person">
+          <span class="person-name">JOHN DOA</span>
+          <span class="person-descr">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id 
+            dui posuere blandit. Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus </span>
+          <div class="person-link"><img src="styles/images/facebook.png" alt=""></div>
+          <div class="person-link"> <img src="styles/images/twitter.png" alt=""></div>
+          </div>
+        </div>
+        <div class="wrapper-dark">
+            <span class="content-heading-white">SKILLS</span>
+            <span class="content-descr-dark">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere.</span>
+            <div id="percent-wrapper">
+              <div class="percent-item" id="percent-trigger">
+                <div class="percent-circle" ><span class="persent-number">90</span></div>
+                <span class="percent-title">HTML&CSS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">96</span></div>
+                <span class="percent-title">AI & PS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">85</span></div>
+                <span class="percent-title">JS & PHP</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">94</span></div>
+                <span class="percent-title">PHOTOGRAPHY</span>
+              </div>
+            </div>
         </div>
        </div>
-       <div class="wrapper-dark">
-          <span class="content-heading-white">SKILLS</span>
-          <span class="content-descr-dark">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere.</span>
-          <div id="percent-wrapper">
-            <div class="percent-item">
-              <div class="percent-circle"><span>90%</span></div>
-              <span class="percent-title">HTML&CSS</span>
-            </div>
-            <div class="percent-item">
-              <div class="percent-circle"><span>96%</span></div>
-              <span class="percent-title">AI & PS</span>
-            </div>
-            <div class="percent-item">
-              <div class="percent-circle"><span>85%</span></div>
-              <span class="percent-title">JS & PHP</span>
-            </div>
-            <div class="percent-item">
-              <div class="percent-circle"><span>94%</span></div>
-              <span class="percent-title">PHOTOGRAPHY</span>
-            </div>
+       <div class="person-block person-block-2">
+        <div id="wrapper-black">
+          <div class="person">
+          <span class="person-name">JOHN DOB</span>
+          <span class="person-descr">Necessi far custosi existentie pronunciation on far esser un familie pronunciation nov, far tot al usa. Membres, tot differe lor etc lingua va continuar, un un, omnicos sport familie far sport payar al, grammatica un. Scientie payar un custosi pronunciation scientie un it va, pronunciation li e usa al esser etc sam sport it familie payar un.</span>
+          <div class="person-link"><img src="styles/images/facebook.png" alt=""></div>
+          <div class="person-link"> <img src="styles/images/twitter.png" alt=""></div>
           </div>
+        </div>
+        <div class="wrapper-dark">
+            <span class="content-heading-white">SKILLS</span>
+            <span class="content-descr-dark">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere.</span>
+            <div id="percent-wrapper">
+              <div class="percent-item" id="percent-trigger">
+                <div class="percent-circle" ><span class="persent-number">80</span></div>
+                <span class="percent-title">HTML&CSS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">86</span></div>
+                <span class="percent-title">AI & PS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">75</span></div>
+                <span class="percent-title">JS & PHP</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">84</span></div>
+                <span class="percent-title">PHOTOGRAPHY</span>
+              </div>
+            </div>
+        </div>
+       </div>
+       <div class="person-block person-block-3">
+        <div id="wrapper-black">
+          <div class="person">
+          <span class="person-name">JOHN DOC</span>
+          <span class="person-descr">Take one the produces us idea are not idea, mistaken rationally pursues a no fault, resultant annoying example of but mistaken advantage do a. Physical but in a happiness pain enjoy you praising, circumstances dislikes idea exercise has a some exercise. Some praising extremely, it dislikes denouncing anyone not pleasure ever undertakes know account chooses</span>
+          <div class="person-link"><img src="styles/images/facebook.png" alt=""></div>
+          <div class="person-link"> <img src="styles/images/twitter.png" alt=""></div>
+          </div>
+        </div>
+        <div class="wrapper-dark">
+            <span class="content-heading-white">SKILLS</span>
+            <span class="content-descr-dark">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere.</span>
+            <div id="percent-wrapper">
+              <div class="percent-item" id="percent-trigger">
+                <div class="percent-circle" ><span class="persent-number">70</span></div>
+                <span class="percent-title">HTML&CSS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">76</span></div>
+                <span class="percent-title">AI & PS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">65</span></div>
+                <span class="percent-title">JS & PHP</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">74</span></div>
+                <span class="percent-title">PHOTOGRAPHY</span>
+              </div>
+            </div>
+        </div>
+       </div>
+       <div class="person-block person-block-4">
+        <div id="wrapper-black">
+          <div class="person">
+          <span class="person-name">JOHN DOE</span>
+          <span class="person-descr">Lorem ipsum justo elementum tellus, pellentesque bibendum odio vivamus porttitor tempus mattis risus, adipiscing&nbsp;&mdash; eros enim justo. Et urna sed fusce elementum urna mauris curabitur nulla magna fusce, congue duis odio nibh vivamus ligula arcu magna nam risus. Diam risus morbi nulla pellentesque cursus elementum cursus sem eu quam ultricies</span>
+          <div class="person-link"><img src="styles/images/facebook.png" alt=""></div>
+          <div class="person-link"> <img src="styles/images/twitter.png" alt=""></div>
+          </div>
+        </div>
+        <div class="wrapper-dark">
+            <span class="content-heading-white">SKILLS</span>
+            <span class="content-descr-dark">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere.</span>
+            <div id="percent-wrapper">
+              <div class="percent-item" id="percent-trigger">
+                <div class="percent-circle" ><span class="persent-number">60</span></div>
+                <span class="percent-title">HTML&CSS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">66</span></div>
+                <span class="percent-title">AI & PS</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">55</span></div>
+                <span class="percent-title">JS & PHP</span>
+              </div>
+              <div class="percent-item">
+                <div class="percent-circle"><span class="persent-number">64</span></div>
+                <span class="percent-title">PHOTOGRAPHY</span>
+              </div>
+            </div>
+        </div>
        </div>
      </div><!--about ends-->
      <div id="clients">
@@ -285,16 +406,30 @@
           tesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt ni dictum porta.</span>
         </div>
         <div id="clients-wrapper">
-          <img src="styles/images/half.png" alt="">
-          <img src="styles/images/jupiter.png" alt="">
-          <img src="styles/images/rocket.png" alt="">
-          <img src="styles/images/moonpic.png" alt="">
-          <img src="styles/images/mars.png" alt="">
+          <img class="partners partners-active" src="styles/images/half.png" alt="">
+          <img class="partners" src="styles/images/jupiter.png" alt="">
+          <img class="partners" src="styles/images/rocket.png" alt="">
+          <img class="partners" src="styles/images/moonpic.png" alt="">
+          <img class="partners" src="styles/images/mars.png" alt="">
         </div>
         <div class="wrapper-dark">
+          <ul>
+            <li class="active feedback">
           <span class="client-feedback">“An image is not simply a trademark, a design, a slogan or an easily remembered picture. It is a studiously crafted ersonality profile of an individual, institution,corporation, product or service”</span>
           <div class="horizontal-line-yellow"></div>
           <span class="client-name">Daniel J. Boorstin</span>
+            </li>
+             <li class="feedback">
+          <span class="client-feedback">“Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum rem, impedit blanditiis, facilis temporibus perspiciatis ipsa quisquam ea dolores totam. Repudiandae delectus doloremque veniam aperiam iusto obcaecati ab consequatur reiciendis?”</span>
+          <div class="horizontal-line-yellow"></div>
+          <span class="client-name">Robert K. Makflooree</span>
+            </li>
+             <li class="feedback">
+          <span class="client-feedback">“Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor ”</span>
+          <div class="horizontal-line-yellow"></div>
+          <span class="client-name">Justin O. Hoobabooba</span>
+            </li>
+          </ul>
         </div>
       </div><!--clients ends-->
       <div id="contacts">
@@ -331,6 +466,9 @@
           <input type="text" class="input-small" id="input-mail" placeholder="Your Mail">
           <input type="text" class="input-small" id="input-subject" placeholder="Subject">
         </div>
+          <div class="error-area" id="name-error"></div>
+          <div class="error-area" id="mail-error"></div>
+          <div class="error-area" id="subject-error"></div>
           <textarea type="text" class="input-large" id="input-message" placeholder="Enter Message Here"></textarea>
         <div id="message-button"><span>send message</span></div>
         </div>
