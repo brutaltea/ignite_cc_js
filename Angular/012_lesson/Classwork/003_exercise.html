@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>12C3</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//MODULE
+  var mainApp = angular.module("mainApp", []);
+//CONTROLLER
+  mainApp.controller('MainController', function ($scope){
+    $scope.items = [
+      { name: "B Item", price: 10.9, category: "Category 1", count: 10, tax: 1.12, expiration: 10 },
+      { name: "A Item", price: 1.1, category: "Category 1", count: 8, tax: 0.55, expiration: 12 },
+      { name: "D Item", price: 2.6, category: "Category 2", count: 7, tax: 0.22, expiration: 5 },
+      { name: "C Item", price: 17.5, category: "Category 2", count: 33, tax: 2.77, expiration: 10 }];
+    $scope.showItems = {
+      name: true,
+      price: true,
+      cat: true,
+      count: true,
+      tax: true,
+      exp: true
+    };
+  })
+</script>
+</head>
+<!--BOOTSTRAPING-->
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Quantity</th>
+          <th>Tax</th>
+          <th>Expiration</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="item in items">
+        <td><ng-include src="showItems.name ? 'templates/name.html' : ''"></ng-include></td>
+        <td><ng-include src="showItems.price ? 'templates/price.html' : ''"></ng-include></td>
+        <td><ng-include src="showItems.cat ? 'templates/cat.html' : ''"></ng-include></td>
+        <td><ng-include src="showItems.count ? 'templates/count.html' : ''"></ng-include></td>
+        <td><ng-include src="showItems.tax ? 'templates/tax.html' : ''"></ng-include></td>
+        <td><ng-include src="showItems.exp ? 'templates/exp.html' : ''"></ng-include></td>
+      </tr>
+    </table>
+    <input type="checkbox" ng-model="showItems.name">Show Name<br>
+    <input type="checkbox" ng-model="showItems.price">Show Price<br>
+    <input type="checkbox" ng-model="showItems.cat">Show Category<br>
+    <input type="checkbox" ng-model="showItems.count">Show Quantity<br>
+    <input type="checkbox" ng-model="showItems.tax">Show Tax<br>
+    <input type="checkbox" ng-model="showItems.exp">Show Expiration<br>
+  </div>
+</body>
+
+</html>
