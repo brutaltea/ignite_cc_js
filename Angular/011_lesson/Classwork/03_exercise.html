@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+  <meta charset="utf-8">
+  <title>Задача 3</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+  <script>
+    var model = "";
+    var mainApp = angular.module("mainApp", []);
+
+    mainApp.controller("mainCtrl", function ($scope) {
+      $scope.message = model;
+      $scope.keyPressHandler = function () {
+        $scope.message = $scope.text;
+      }
+    });
+
+  </script>
+</head>
+
+<body ng-controller="mainCtrl">
+  <h1>{{message}}</h1>
+  <input ng-keypress="keyPressHandler()" ng-model="text" />
+</body>
+</html>

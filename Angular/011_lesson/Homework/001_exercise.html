@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>ToDo List (Task1)</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", []);
+//controller goes here
+  mainApp.controller('MainController', function ($scope){
+    $scope.tasks = [
+      {
+        name: 'Buy food',
+        date: '02.02.1992',
+        descr: 'Gluten free only!',
+        done: true
+      }
+    ];
+    function resetCreateForm(){
+      $scope.newTask = {
+        name: '',
+        date: '',
+        descr: '',
+        done: false
+      }
+    };
+    function createTask(newTask){
+      newTask.id = $scope.tasks.length;
+      $scope.tasks.push(newTask);
+      resetCreateForm();
+    };
+    $scope.createTask = createTask;
+  })
+</script>
+</head>
+<!--bootstraping goes here-->
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+    <h3>ToDo List</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="task in tasks">
+        <td>{{task.name}}</td>
+        <td>{{task.descr}}</td>
+        <td>{{task.date | date}}</td>
+        <td>{{task.done}}</td>
+        <td><button type="button" class="btn btn-default">Edit</button></td>
+      </tr>
+    </table>
+  <div>
+  <!-- Форма для добавления новых задач -->
+   <div class="form-group">
+    <label >Name</label>
+    <input type="text" class="form-control"  placeholder="" ng-model="newTask.name">
+  </div>
+   <div class="form-group">
+    <label >Due Date</label>
+    <input type="text" class="form-control"  placeholder="" ng-model="newTask.date">
+  </div>
+   <div class="form-group">
+    <label >Description</label>
+    <input type="text" class="form-control"  placeholder="" ng-model="newTask.descr">
+  </div>
+  <input type="checkbox" ng-model="newTask.done">Completed<br>
+  <button type="button" class="btn btn-info" ng-click="createTask(newTask)">Add</button>
+</div>
+  </div>
+</body>
+
+</html>

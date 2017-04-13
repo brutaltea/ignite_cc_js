@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>ToDo List (Task1)</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", []);
+//controller goes here
+  mainApp.controller('MainController', function ($scope){
+    $scope.tasks = [
+      {
+        name: 'Buy food',
+        date: '02.02.1992',
+        descr: 'Gluten free only!',
+        done: true
+      },
+      {
+        name: 'Buy water',
+        date: '02.02.1995',
+        descr: 'bla bla',
+        done: true
+      }
+    ];
+    $scope.isCreating = false;
+    $scope.isEditing = false;
+    function startCreating() {
+      $scope.isCreating = true;
+      $scope.isEditing = false;
+    };
+    function cancelCreating() {
+      $scope.isCreating = false;
+    }
+    function startEditing(){
+      $scope.isEditing = true;
+      $scope.isCreating = false;
+    };
+    function cancelEditing(){
+      $scope.isEditing = false;
+    };
+    function resetCreateForm(){
+      $scope.newTask = {
+        name: '',
+        date: '',
+        descr: '',
+        done: false
+      };
+      $scope.isCreating = false;
+    };
+    function createTask(newTask){
+      newTask.id = $scope.tasks.length;
+      $scope.tasks.push(newTask);
+    };
+    function shouldShowCreating() {
+      return $scope.isCreating && !$scope.isEditing;
+    };
+    function shouldSHowEditing() {
+      return $scope.isEditing && !$scope.isCreating;
+    };
+    $scope.editedTask = null;
+    function setEditedTask(task){
+      $scope.editedTask = angular.copy(task);
+    };
+    function updateTask(task){
+      var index = _.findIndex($scope.tasks, function(t){
+        return t.id == task.id;
+      });
+      $scope.tasks[index] = task;
+      $scope.editedTask = null;
+      $scope.isEditing = false;
+    };
+    $scope.resetCreateForm = resetCreateForm;
+    $scope.startCreating = startCreating;
+    $scope.cancelCreating = cancelCreating;
+    $scope.startEditing = startEditing;
+    $scope.cancelEditing = cancelEditing;
+    $scope.createTask = createTask;
+    $scope.shouldShowCreating = shouldShowCreating;
+    $scope.shouldSHowEditing = shouldSHowEditing;
+    $scope.setEditedTask = setEditedTask;
+    $scope.updateTask = updateTask;
+  })
+</script>
+<style>
+  .taskform{
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<!--bootstraping goes here-->
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+    <h3>ToDo List</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="task in tasks">
+        <td>{{task.name}}</td>
+        <td>{{task.descr}}</td>
+        <td>{{task.date | date}}</td>
+        <td>{{task.done}}</td>
+        <td><button type="button" ng-click="setEditedTask(task);startEditing()"class="btn btn-default">Edit</button></td>
+      </tr>
+    </table>
+    <!--CREATE STARTS-->
+    <div ng-if="shouldShowCreating()" class="create-task taskform">
+      <div class="form-group">
+        <label >Name</label>
+        <input type="text" class="form-control"  placeholder="" ng-model="newTask.name">
+      </div>
+      <div class="form-group">
+        <label>Due Date</label>
+        <input type="text" class="form-control"  placeholder="" ng-model="newTask.date">
+      </div>
+      <div class="form-group">
+        <label >Description</label>
+        <input type="text" class="form-control"  placeholder="" ng-model="newTask.descr">
+      </div>
+      <input type="checkbox" ng-model="newTask.done">Completed<br>
+      <button type="button" class="btn btn btn-success" ng-click="createTask(newTask); resetCreateForm(newTask)">Add</button>
+      <button type="button" class="btn btn-danger" ng-click="cancelCreating()">Cancel</button>
+    </div>
+    <!--CREATE ENDS-->
+    <!--EDIT STARTS-->
+    <div ng-if="shouldSHowEditing()" class="edit-task taskform">
+      <div class="form-group">
+        <label >Name</label>
+        <input type="text" class="form-control"  placeholder="" ng-model="editedTask.name">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Due Date</label>
+        <input type="text" class="form-control"  placeholder="" ng-model="editedTask.date">
+      </div>
+      <div class="form-group">
+        <label >Description</label>
+        <input type="text" class="form-control"  placeholder="" ng-model="editedTask.descr">
+      </div>
+      <input type="checkbox" ng-model="editedTask.done">Completed<br>
+      <button type="button" class="btn btn-warning" ng-click="updateTask(editedTask)">Save</button>
+      <button type="button" class="btn btn-danger" ng-click="cancelEditing()">Cancel</button>
+    </div>
+    <!--EDIT ENDS-->
+    <button type="button" class="btn btn-info" ng-click="startCreating()">Create New</button>
+ </div>
+</body>
+
+</html>
