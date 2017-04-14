@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>13H3</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", []);
+//controller goes here
+  mainApp.controller('MainController', function ($scope){
+    $scope.validTel = /^[0-9]+$/;
+    $scope.validPw = /^[a-zA-Z0-9]+$/;
+    function showError(err) {
+      if (angular.isDefined(err)) {
+        if (err.required) {
+          return 'Cant be empty';
+        }
+        else if (err.email) {
+          return 'Email is invalid';
+        }
+        else {
+          return 'Value is invalid';
+        }
+      }
+    };
+    function matchPw(){
+      if ($scope.newUser.pw !== $scope.newUser.repw) {
+        $scope.pwError = 'Passwords dont match'
+      }
+      else {
+        $scope.pwError = '';
+      }
+    }
+    $scope.showError = showError;
+    $scope.matchPw = matchPw;
+  })
+</script>
+<style>
+  p{
+    display: block;
+    padding-left: 100px;
+    color: red;
+  }
+</style>
+</head>
+<!--bootstraping goes here-->
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+    <form class="form-control input-group" novalidate name="myForm">
+    <div class="form-group col-sm-7">
+      <label class="col-sm-2">Email</label>
+      <input name="userEmail" class="form-control" type="email" ng-model="newUser.email" ng-required="true">
+      <p ng-show="myForm.userEmail.$invalid && myForm.userEmail.$dirty">{{showError(myForm.userEmail.$error)}}</p>
+    </div>
+    <div class="form-group col-sm-7">
+      <label class="col-sm-2">Name</label>
+      <input name="userName" class="form-control" ng-model="newUser.name" ng-required="true">
+      <p ng-show="myForm.userName.$invalid && myForm.userName.$dirty">{{showError(myForm.userName.$error)}}</p>
+    </div>
+    <div class="form-group col-sm-7">
+      <label class="col-sm-2">Phone</label>
+      <input name="userTel" class="form-control" type="tel" ng-model="newUser.tel" ng-pattern="validTel" ng-required="true">
+      <p ng-show="myForm.userTel.$invalid && myForm.userTel.$dirty">{{showError(myForm.userTel.$error)}}</p>
+    </div>
+    <div class="form-group col-sm-7">
+      <label class="col-sm-2">Password</label>
+      <input name="userPw" class="form-control" ng-model="newUser.pw" ng-pattern="validPw" ng-required="true">
+      <p ng-show="myForm.userPw.$invalid && myForm.userPw.$dirty">{{showError(myForm.userPw.$error)}}</p>
+    </div>
+    <div class="form-group col-sm-7">
+      <label class="col-sm-2">Password</label>
+      <input name="userrePw" class="form-control" ng-model="newUser.repw" ng-required="true" compare-to="newUser.pw" ng-keyup="matchPw()">
+      <p>{{pwError}}</p>
+    </div>
+    </form>
+
+  </div>
+</body>
+
+</html>
