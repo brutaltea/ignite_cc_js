@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>13H2</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", []);
+//controller goes here
+  mainApp.controller('MainController', function ($scope){
+    $scope.items = [
+        {name: 'apple'},
+        {name: 'banana'},
+        {name: 'corn'},
+        {name: 'apple'},
+        {name: 'banana'},
+        {name: 'corn'},
+        {name: 'apple'},
+        {name: 'banana'},
+        {name: 'corn'},
+        {name: 'jelly'}];
+     $scope.search = {};
+     $scope.userInput = {};
+     function findName() {
+       for(prop in $scope.userInput){
+         $scope.search[prop] = $scope.userInput[prop];
+       }
+     };
+     $scope.findName = findName;
+  })
+</script>
+</head>
+<!--bootstraping goes here-->
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+  <input type="text" ng-model="userInput.name">
+  <button ng-click="findName()">Find</button>
+  <div ng-repeat="item in items | filter:search">
+    <span>{{item.name }}</span>
+  </div>
+</body>
+
+</html>
