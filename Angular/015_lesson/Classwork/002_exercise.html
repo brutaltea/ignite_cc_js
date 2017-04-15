@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>15C2</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", []);
+//controller goes here
+  mainApp.controller('MainController', function ($scope, $interval){
+    $scope.counter = 0;
+    $scope.counterInterval;
+    $scope.incrCounter = function incrCounter() {
+      $scope.counter++
+    };
+    $scope.startCounter = function(){
+      counterInterval = $interval($scope.incrCounter, 1000);
+    };
+    $scope.stopCounter = function (){
+      $interval.cancel(counterInterval);
+      $scope.counter = 0;
+    };
+  })
+</script>
+
+</head>
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+    <!--bootstraping goes here-->
+    <button ng-click="startCounter()">start</button>
+    <button ng-click="stopCounter()">stop</button>
+    <h1>{{counter}}</h1>
+  </div>
+</body>
+
+</html>
