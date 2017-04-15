@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>14C1</title>
+  <title>14C2</title>
   <script src="../../Libraries/angular.js"></script>
   <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
   <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
@@ -14,11 +14,19 @@
       clickCounter();
     };
   }]);
-  mainApp.factory('clickCounter', function () {
+  mainApp.provider('clickCounter', function () {
     var counter = 1;
-    return function () {
-      console.log(counter++);
-      return;
+    return {
+      setCounterOffset: function (value) {
+        if (angular.isDefined(value)) {
+          counter = value;
+        }
+      },
+      $get: function () {
+        return function () {
+          console.log(counter++);
+        }
+      }
     }
   });
 </script>
