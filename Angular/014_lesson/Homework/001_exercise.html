@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>14H1</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", []);
+  mainApp.factory("calcFactory", function(){
+    return{
+      plus: function(a,b) {
+        return a+b;
+      },
+      substr: function(a,b) {
+        return a-b;
+      },
+      divide: function(a,b) {
+        return a/b;
+      },
+      mult: function(a,b) {
+        return a*b;
+      }
+    }
+  });
+  mainApp.service("calcService", function(){
+    this.plus = function(a,b) {
+      return a+b;
+    },
+    this.substr = function(a,b) {
+      return a-b;
+    },
+    this.divide = function(a,b) {
+      return a/b;
+    },
+    this.mult = function(a,b) {
+      return a*b;
+    }
+  });
+  mainApp.provider("calcProvider", function() {
+    return{
+      $get: function() {
+        return{
+          plus: function(a,b) {
+            return a+b
+          },
+          substr: function(a,b) {
+            return a-b;
+          },
+          divide: function(a,b) {
+            return a/b;
+          },
+          mult: function(a,b) {
+            return a*b;
+          }
+        }
+      }
+    }
+  });
+//controller goes here
+  mainApp.controller("MainController", ["$scope", "calcFactory", "calcService", "calcProvider", function($scope, calcFactory, calcService, calcProvider) {
+    $scope.plus = function () {
+      $scope.factoryResult = calcFactory.plus($scope.a, $scope.b);
+      $scope.serviceResult = calcService.plus($scope.a, $scope.b);
+      $scope.providerResult = calcProvider.plus($scope.a, $scope.b);
+    };
+    $scope.substr = function () {
+      $scope.factoryResult = calcFactory.substr($scope.a, $scope.b);
+      $scope.serviceResult = calcService.substr($scope.a, $scope.b);
+      $scope.providerResult = calcProvider.substr($scope.a, $scope.b);
+    };
+    $scope.divide = function () {
+      $scope.factoryResult = calcFactory.divide($scope.a, $scope.b);
+      $scope.serviceResult = calcService.divide($scope.a, $scope.b);
+      $scope.providerResult = calcProvider.divide($scope.a, $scope.b);
+    };
+    $scope.mult = function () {
+      $scope.factoryResult = calcFactory.mult($scope.a, $scope.b);
+      $scope.serviceResult = calcService.mult($scope.a, $scope.b);
+      $scope.providerResult = calcProvider.mult($scope.a, $scope.b);
+    };
+  }])
+
+</script>
+</head>
+<!--bootstraping goes here-->
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+    <input type="number" ng-model="a">
+    <button class="btn btn-default" ng-click="plus()" >+</button>
+    <button class="btn btn-default" ng-click="substr()">-</button>
+    <button class="btn btn-default" ng-click="divide()">/</button>
+    <button class="btn btn-default" ng-click="mult()">*</button>
+    <input type="number" ng-model="b">
+    <h4>Factory Result: <span>{{factoryResult}}</span></h4>
+    <h4>Service Result: <span>{{serviceResult}}</span></h4>
+    <h4>Provider Result: <span>{{providerResult}}</span></h4>
+
+  </div>
+</body>
+
+</html>
