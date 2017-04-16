@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
+<head>
+  <base href="/"></base>
+  <meta charset="utf-8" />
+  <title>16H2</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", ['ngRoute'])
+  .config(function($routeProvider, $locationProvider){
+    $routeProvider
+      /*.when('/home', {templateUrl: 'src/home.html'})
+      .when('/contact', {templateUrl: 'src/contact.html'})*/
+      .when('', {templateUrl: 'src/index.html'})
+      .when('home', {templateUrl: 'src/home.html'})
+      .when('contact', {templateUrl: 'src/contact.html'})
+      .otherwise({ redirectTo: ''})
+      $locationProvider.html5Mode(true);
+  })
+  .controller("MainCtrl", function($scope, $route, $location){
+    $scope.items = [
+      {name: 'Vasya', age: 20, email: 'vasya@mail.ru', employed: false},
+      {name: 'Masha', age: 25, email: 'm@m', employed: true},
+      {name: 'Petya', age: 27, email: 'petya@stuff', employed: true},
+      {name: 'John', age: 36, email: 'johnDoe@mail', employed: true},
+      {name: 'Jane', age: 28, email: 'janeDoe@mail', employed: false}];
+    $scope.goHome = function(){
+      $location.path('home')
+    }
+    $scope.goContact = function(){
+      $location.path('contact')
+    }
+})
+</script>
+<style>
+nav{
+  height: 50px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+nav ul li {
+  display: block;
+  float: left;
+  height: 50px;
+  width: auto;
+  margin: auto;
+}
+nav ul li a{
+  padding-top: 15px;
+
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+}
+nav ul li a:hover {
+  text-decoration: none;
+  background-color: grey;
+  color: blue;
+}
+</style>
+</head>
+<body >
+  <div class="container" ng-controller="MainCtrl">
+    <!--bootstraping goes here-->
+    <nav class="col-sm-12">
+      <ul>
+        <li><button ng-click="goHome()" >Home</button></li>
+        <li><button ng-click="goContact()" >Contact</button></li>
+      </ul>
+    </nav>
+    <div ng-view class="container"></div>
+  </div>
+
+</body>
+
+</html>

@@ -2,19 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
   <meta charset="utf-8" />
-  <title>16H1</title>
+  <title>16H2</title>
   <script src="../../Libraries/angular.js"></script>
   <script src="../../Libraries/angular_route.js"></script>
   <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
   <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
 <script>
 //module goes here
-  var app = angular.module("mainApp", ['ngRoute'])
-    .config(function($routeProvider){
-      $routeProvider
-        .when('/home', {templateUrl: 'src/home.html'})
-        .when('/contact', {templateUrl: 'src/contact.html'})
-    })
+  var mainApp = angular.module("mainApp", ['ngRoute'])
+  .config(function($routeProvider){
+    $routeProvider
+      .when('/home', {templateUrl: 'src/home.html'})
+      .when('/contact', {templateUrl: 'src/contact.html'})
+  })
+  .controller("MainCtrl", function($scope, $route){
+  $scope.items = [
+    {name: 'Vasya', age: 20, email: 'vasya@mail.ru', employed: false},
+    {name: 'Masha', age: 25, email: 'm@m', employed: true},
+    {name: 'Petya', age: 27, email: 'petya@stuff', employed: true},
+    {name: 'John', age: 36, email: 'johnDoe@mail', employed: true},
+    {name: 'Jane', age: 28, email: 'janeDoe@mail', employed: false}]
+})
 </script>
 <style>
 nav{
@@ -45,6 +53,7 @@ nav ul li a:hover {
 </style>
 </head>
 <body ng-app="mainApp">
+  <div class="container" ng-controller="MainCtrl">
     <!--bootstraping goes here-->
     <nav class="col-sm-12">
       <ul>
@@ -53,6 +62,8 @@ nav ul li a:hover {
       </ul>
     </nav>
     <div ng-view class="container"></div>
+  </div>
+
 </body>
 
 </html>
