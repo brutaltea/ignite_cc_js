@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta charset="utf-8" />
+  <title>16C1</title>
+  <script src="../../Libraries/angular.js"></script>
+  <script src="../../Libraries/angular_route.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var app = angular.module("mainApp", ['ngRoute'])
+  .config(function($routeProvider){
+    $routeProvider
+      .when('/home', {templateUrl: 'src/home.html'})
+      .when('/contact', {templateUrl: 'src/contact.html'})
+  })
+</script>
+<style>
+nav{
+  height: 50px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+nav ul li {
+  display: block;
+  float: left;
+  height: 50px;
+  width: auto;
+  margin: auto;
+}
+nav ul li a{
+  padding-top: 15px;
+
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+}
+nav ul li a:hover {
+  text-decoration: none;
+  background-color: grey;
+  color: blue;
+}
+</style>
+</head>
+<body ng-app="mainApp">
+    <!--bootstraping goes here-->
+    <nav class="col-sm-12">
+      <ul>
+        <li><a ng-href="#!/home">View 1</a></li>
+        <li><a ng-href="#!/contact">View 2</a></li>
+      </ul>
+    </nav>
+    <div ng-view class="container"></div>
+
+</body>
+
+</html>
