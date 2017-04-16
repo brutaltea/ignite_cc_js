@@ -1,9 +1,9 @@
-<div class="panel well">
+<div class="panel well" ng-controller="ContactCtrl">
     <form name="contactForm">
-        <label>username:   <input type="text" class="input-lg form-control" name="userName" /></label><br />
-        <label>age:   <input type="text" class="input-lg form-control" name="age" /></label><br />
-        <label>email: <input type="email" class="input-lg form-control" name="userEmail" /></label><br />
-        <label>employed: <input type="checkbox" name="employed"></input></label><br />
+        <label>username:   <input type="text" class="input-lg form-control" ng-model="username" name="userName" /></label><br />
+        <label>age:   <input type="text" class="input-lg form-control" ng-model="userage" name="age" /></label><br />
+        <label>email: <input type="email" class="input-lg form-control" ng-model="useremail" name="userEmail" /></label><br />
+        <label>employed: <input type="checkbox" ng-model="useremployed" name="employed"></input></label><br />
         <input type="submit" class="btn-lg"></input>
     </form>
 </div>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-  <base href="/"></base>
   <meta charset="utf-8" />
   <title>16C2</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -13,11 +12,14 @@
   var app = angular.module("mainApp", ['ngRoute'])
   .config(function($routeProvider, $locationProvider){
     $routeProvider
-      .when('', {templateUrl: 'src/index.html'})
-      .when('view1', {templateUrl: 'src/view1.html'})
-      .when('view2', {templateUrl: 'src/view2.html'})
-      .otherwise({ redirectTo: ''})
-      $locationProvider.html5Mode(true);
+      .when('/', {templateUrl: 'src/index.html'})
+      .when('/view1', {templateUrl: 'src/view1.html'})
+      .when('/view2', {templateUrl: 'src/view2.html'})
+      .otherwise({ redirectTo: ''});
+      $locationProvider.html5Mode({
+          enable: true,
+          requireBase: true
+      });
   })
   .controller('mainCtrl', function($scope, $location){
     $scope.goIndex = function () {

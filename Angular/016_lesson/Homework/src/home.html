@@ -1,5 +1,5 @@
 <ul>
-  <li ng-repeat="item in items">{{item.name}}</li>
+  <li ng-repeat="item in items" ng-click="goContact($index)">{{item.name}}</li>
 </ul>
 <form name="contactForm">
  <label>username:   <input type="text" class="input-lg" name="userName"/></label>

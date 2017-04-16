@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
 <head>
-  <base href="/"></base>
   <meta charset="utf-8" />
   <title>16H2</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
@@ -12,13 +11,14 @@
   var mainApp = angular.module("mainApp", ['ngRoute'])
   .config(function($routeProvider, $locationProvider){
     $routeProvider
-      /*.when('/home', {templateUrl: 'src/home.html'})
-      .when('/contact', {templateUrl: 'src/contact.html'})*/
-      .when('', {templateUrl: 'src/index.html'})
-      .when('home', {templateUrl: 'src/home.html'})
-      .when('contact', {templateUrl: 'src/contact.html'})
+      .when('/', {templateUrl: 'src/index.html'})
+      .when('/home', {templateUrl: 'src/home.html'})
+      .when('/contact', {templateUrl: 'src/contact.html'})
       .otherwise({ redirectTo: ''})
-      $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode({
+          enable: true,
+          requireBase: true
+      });
   })
   .controller("MainCtrl", function($scope, $route, $location){
     $scope.items = [
