@@ -10,7 +10,7 @@
 //module goes here
   var mainApp = angular.module("mainApp", ['ngCookies']);
 //controller goes here
-  mainApp.controller('MainController', function ($scope, $cookies, $cookieStore){
+  mainApp.controller('MainController', function ($scope, $cookies){
     var myCookies = $cookies.get('myCookies');
   // Setting a cookie
     $cookies.put('myCookies', 'If you see this the cookie is working!');
