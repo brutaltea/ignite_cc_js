@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
 <head>
-  <title>17C1</title>
+  <title>17H2</title>
   <script src="../../Libraries/angular.js"></script>
   <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
   <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
@@ -12,25 +12,23 @@
   .controller('MainController', function ($scope){
     $scope.items = ['A','B','C','D','E','F','G'];
   })
-  .directive('customList', function(){
-    return function ($scope, $element) {
-      var data = $scope.items;
-      var elem = angular.element("<ul>");
-      $element.append(elem);
-      for (var i = 0; i < data.length; i++) {
-        var listItem = angular.element("<li>");
-        listItem.append((data[i]));
-        elem.append(listItem);
-      }
+  .directive('customDir', function(){
+    return {
+      restrict: 'A',
+      scope: {items: "="},
+      template: '<p ng-repeat="item in items">{{item}}</p>',
+      replace: true
     }
   })
 </script>
+<style>
 
+</style>
 </head>
 <body>
   <div class="container" ng-controller="MainController">
     <!--bootstraping goes here-->
-    <div custom-list></div>
+    <div custom-dir items="items"></div>
   </div>
 </body>
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
+<head>
+  <title>17H1</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", [])
+
+  .directive('customDir', function($parse){
+    return {
+      restrict: 'E',
+      link: function($scope, $element, $attributes){
+        var data = $scope.items;
+        if(angular.isDefined(data)){
+          var elem = angular.element('<table>');
+          $element.append(elem);
+          for (var i = 0; i < data.length; i++) {
+            var row = angular.element('<tr>');
+            row.append(angular.element('<td>').text(i+1))
+            row.append(angular.element('<td>').text(data[i].name));
+            row.append(angular.element('<td>').text(data[i].price))
+            elem.append(row);
+
+          }
+        }
+      }
+    }
+  })
+  //controller goes here
+  .controller('MainController', function ($scope){
+    $scope.items = [
+      { name: "Table", price: 44.10 },
+      { name: "Chair", price: 21.20 },
+      { name: "Pillow", price: 12.20 },
+      { name: "Picture", price: 112.70 },
+      { name: "Lamp", price: 28.31 }];
+  })
+</script>
+<style>
+  custom-dir td{
+    border: 1px solid black;
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="container" ng-controller="MainController">
+    <!--bootstraping goes here-->
+    <custom-dir></custom-dir>
+  </div>
+</body>
+
+</html>

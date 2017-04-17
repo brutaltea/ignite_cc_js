@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
 <head>
-  <title>17C1</title>
+  <title>17H3</title>
   <script src="../../Libraries/angular.js"></script>
   <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
   <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
@@ -10,27 +10,36 @@
   var mainApp = angular.module("mainApp", [])
 //controller goes here
   .controller('MainController', function ($scope){
-    $scope.items = ['A','B','C','D','E','F','G'];
+    $scope.items = [
+      {text: 'Home', href: '#home'},
+      {text: 'About', href: '#abot'},
+      {text: 'Contacts', href: '#contacts'}];
   })
-  .directive('customList', function(){
+  .directive('customDir', function(){
     return function ($scope, $element) {
       var data = $scope.items;
-      var elem = angular.element("<ul>");
-      $element.append(elem);
+      var nav = angular.element('<nav class="navbar navbar-inverse">');
+      var ul = angular.element('<ul class="nav navbar-nav">');
       for (var i = 0; i < data.length; i++) {
         var listItem = angular.element("<li>");
-        listItem.append((data[i]));
-        elem.append(listItem);
+        var link = angular.element("<a href='"+data[i].href+"'>");
+        link.append(data[i].text);
+        listItem.append(link);
+        ul.append(listItem);
+        nav.append(ul);
+        $element.append(nav)
       }
     }
   })
 </script>
+<style>
 
+</style>
 </head>
 <body>
   <div class="container" ng-controller="MainController">
     <!--bootstraping goes here-->
-    <div custom-list></div>
+    <div custom-dir></div>
   </div>
 </body>
 
