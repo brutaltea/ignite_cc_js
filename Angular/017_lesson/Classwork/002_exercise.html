@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
+<head>
+  <title>17C2</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", [])
+//controller goes here
+  .controller('MainController', function ($scope){
+  })
+  .directive('customForm', function(){
+    return function ($scope, $element, $attributes) {
+      var username = angular.element('<div class="input-group"><span class="input-group-addon" id="basic-addon1">Username</span><input type="text" class="form-control aria-describedby="basic-addon1"></div>');
+      var login = angular.element('<div class="input-group"><span class="input-group-addon" id="basic-addon1">Login</span><input type="text" class="form-control aria-describedby="basic-addon1"></div>');
+      var password = angular.element('<div class="input-group"><span class="input-group-addon" id="basic-addon1">Password</span><input type="text" class="form-control aria-describedby="basic-addon1"></div>');
+      var email =  angular.element('<div class="input-group"><span class="input-group-addon" id="basic-addon1">Email</span><input type="text" class="form-control aria-describedby="basic-addon1"></div>');
+      $element.append(username);
+      $element.append(login);
+      $element.append(email);
+      $element.append(password);
+    }
+  })
+</script>
+<style>
+  .input-group{
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="container" ng-controller="MainController">
+    <!--bootstraping goes here-->
+    <div custom-form></div>
+  </div>
+</body>
+
+</html>
