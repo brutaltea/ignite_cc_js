@@ -1,46 +1,83 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
 <head>
   <title>15H3</title>
   <script src="../../Libraries/angular.js"></script>
   <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
   <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.js"></script>
 <script>
 //module goes here
-  var mainApp = angular.module("mainApp", []);
+  var mainApp = angular.module("mainApp", ["duScroll"])
 //controller goes here
-  mainApp.controller('MainController', function ($scope, $interval, $filter){
-    var time = 0;
-    var setTimer;
-    $scope.timer = "00:00:00";
-    $scope.startTimer = function (){
-      if (angular.isDefined(setTimer)){
-        return;
-      }
-      setTimer = $interval(function (){
-        time += 100;
-        $scope.timer = $filter('date')(time, "HH:mm:ss", "UTC");
-      }, 100);
-    };
-    $scope.stopTimer = function (){
-      $interval.cancel(setTimer);
-      setTimer = undefined;
-    };
-    $scope.resetTimer = function (){
-      time = 0;
-      $scope.timer = "00:00:00";
-    };
+.controller('MainController', function ($scope){
+    var container = angular.element(document.getElementById('container'));
+    var section1 = angular.element(document.getElementById('section-1'))
+    var section2 = angular.element(document.getElementById('section-2'));
+
   })
 </script>
+<style>
+  .block{
+    height: 100px;
+    border: 1px solid black;
+  }
+  .red{
+    background-color: red;
+  }
+  .blue{
+    background-color: blue;
+  }
+  .green{
+    background-color: green;
+  }
+  .yellow{
+    background-color: yellow;
+  }
+  ul {
+    height: 25px;
+  }
+  ul li {
 
+    list-style: none;
+  }
+  ul li a{
+    display: block;
+    float: left;
+    width: 100px;
+    text-align: center;
+    margin-right: 2px;
+    background-color: coral;
+    border: 1px solid black;
+  }
+  ul li a:hover{
+    background-color: SkyBlue;
+    cursor: pointer;
+  }
+</style>
 </head>
-<body ng-app="mainApp">
+<body>
   <div class="container" ng-controller="MainController">
     <!--bootstraping goes here-->
-    <button ng-click="startTimer()">Start</button>
-    <button ng-click="stopTimer()">Stop</button>
-    <button ng-click="resetTimer()">Clear</button>
-    {{timer}}
+    <ul du-scroll-container="container">
+      <li><a href="#section-1" du-smooth-scroll du-scrollspy>Top</a></li>
+      <li><a href="#section-2" du-smooth-scroll du-scrollspy>Middle</a></li>
+      <li><a href="#section-3" du-smooth-scroll du-scrollspy>Bottom</a></li>
+    </ul>
+    <div id="container" du-scroll-container>
+      <div class="block red" id="section-1"><h1>TOP</h1></div>
+      <div class="block blue"></div>
+      <div class="block green"></div>
+      <div class="block yellow"></div>
+      <div class="block red"></div>
+      <div class="block blue" id="section-2"><h1>MIDDLE</h1></div>
+      <div class="block green"></div>
+      <div class="block yellow"></div>
+      <div class="block red"></div>
+      <div class="block blue"></div>
+      <div class="block green"></div>
+      <div class="block yellow" id="section-3"><h1>BOTTOM</h1></div>
+    </div>
   </div>
 </body>
 

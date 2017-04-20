@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>15H2</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", []);
+//controller goes here
+  mainApp.controller('MainController', function ($scope, $anchorScroll, $location){
+    $location.path('');
+    $scope.scrollTo = function(id) {
+
+      $location.hash(id);
+    };
+  })
+</script>
+<style>
+  .block{
+    height: 100px;
+    border: 1px solid black;
+  }
+  .red{
+    background-color: red;
+  }
+  .blue{
+    background-color: blue;
+  }
+  .green{
+    background-color: green;
+  }
+  .yellow{
+    background-color: yellow;
+  }
+  ul {
+    height: 25px;
+  }
+  ul li {
+    display: block;
+    float: left;
+    width: 100px;
+    text-align: center;
+    margin-right: 2px;
+    background-color: coral;
+    border: 1px solid black;
+  }
+  ul li:hover{
+    background-color: SkyBlue;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body ng-app="mainApp">
+  <div class="container" ng-controller="MainController">
+    <!--bootstraping goes here-->
+    <ul>
+      <li ng-click="scrollTo('top')">Top</li>
+      <li ng-click="scrollTo('middle')">Middle</li>
+      <li ng-click="scrollTo('onemore')">OneMore</li>
+      <li ng-click="scrollTo('bottom')">Bottom</li>
+    </ul>
+    <div class="block red" id="top"><h1>TOP</h1></div>
+    <div class="block blue"></div>
+    <div class="block green"></div>
+    <div class="block yellow"></div>
+    <div class="block red"></div>
+    <div class="block blue" id="middle"><h1>MIDDLE</h1></div>
+    <div class="block green"></div>
+    <div class="block yellow"></div>
+    <div class="block red" id="onemore"><h1>ONEMORE</h1></div>
+    <div class="block blue"></div>
+    <div class="block green"></div>
+    <div class="block yellow" id="bottom"><h1>BOTTOM</h1></div>
+  </div>
+</body>
+
+</html>

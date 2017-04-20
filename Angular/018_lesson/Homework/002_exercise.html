@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
+<head>
+  <title>18H2</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", [])
+//controller goes here
+  .controller('MainController', function ($scope){
+    var n = Math.floor(Math.random() * (30 - 10)) + 10;
+    $scope.count = n;
+  })
+  .directive('customDir', function(){
+    return {
+      restrict: 'E',
+      priority: 1,
+      controller: 'MainController',
+      link: function (scope, elem, attrs) {
+        var ul = angular.element('<ul>');
+        for (var i = 1; i < scope.count; i++) {
+          var li = angular.element('<li>').text(i);
+          ul.append(li);
+         }
+        elem.append(ul);
+      }
+    };
+  })
+  .directive('anotherDir', function () {
+    return {
+      restrict: 'A',
+      priority: 2,
+      require: 'customDir',
+      controller: 'MainController',
+      link: function (scope, elem, attrs) {
+        var items = angular.element(document).find("li");
+        for (var i = 1; i < items.length; i++) {
+          if (i%2!==0){
+            items[i].setAttribute("class", "red");
+          }
+        }
+      }
+    }
+  })
+</script>
+<style>
+  .red {
+    color: red;
+  }
+</style>
+</head>
+<body>
+  <div class="container" ng-controller="MainController">
+    <!--bootstraping goes here-->
+    <custom-dir another-dir></custom-dir>
+  </div>
+</body>
+
+</html>

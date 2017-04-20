@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
 <head>
-  <title>15C3</title>
+  <title>18H3</title>
   <script src="../../Libraries/angular.js"></script>
   <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
   <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
-  <script src="https://code.angularjs.org/1.4.0-rc.2/angular-sanitize.js"></script>
-
 <script>
 //module goes here
-  var mainApp = angular.module("mainApp", ['ngSanitize']);
+  var mainApp = angular.module("mainApp", [])
 //controller goes here
-  mainApp.controller('MainController', function ($scope, $compile){
-    var data = { name: "<strong>Ivan</strong>" };
-    var str = $compile(data.name+'huy')($scope);
-    console.log(data.name);
-    $scope.result = data.name;
-})
-</script>
+  .controller('MainController', function ($scope){
 
+  })
+  .directive('dialogBox', function(){
+    return {
+      restrict: 'A',
+      transclude: true,
+      controller: 'MainController',
+      template: 'This is template text<dialog open ng-transclude></dialog>'
+    };
+  })
+</script>
+<style>
+
+</style>
 </head>
 <body>
   <div class="container" ng-controller="MainController">
     <!--bootstraping goes here-->
-    <div ng-bind-html="result">
+    <div dialog-box>This is Dialog Box</div>
   </div>
 </body>
 

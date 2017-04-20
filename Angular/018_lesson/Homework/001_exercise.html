@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
+<head>
+  <title>18H1</title>
+  <script src="../../Libraries/angular.js"></script>
+  <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+  <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+<script>
+//module goes here
+  var mainApp = angular.module("mainApp", [])
+//controller goes here
+  .controller('MainController', function ($scope){
+    $scope.items = [
+                { name: "Table", price: 44.10 },
+                { name: "Chair", price: 21.20 },
+                { name: "Pillow", price: 12.20 },
+                { name: "Picture", price: 112.70 },
+                { name: "Lamp", price: 28.31 }
+            ];
+  })
+  .directive('customDir', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'src/index.html',
+      controller: 'MainController'
+    };
+  })
+  .directive('anotherDir', function () {
+    return {
+      restrict: 'A',
+      require: 'customDir',
+      controller: 'MainController',
+      link: function (scope, elem, attrs) {
+        scope.showPrice = function (index) {
+          scope.price = 'Price: ' + scope.items[index].price;
+        };
+      }
+    };
+  })
+</script>
+<style>
+
+</style>
+</head>
+<body>
+  <div class="container" ng-controller="MainController">
+    <!--bootstraping goes here-->
+    <custom-dir another-dir></custom-dir>
+  </div>
+</body>
+
+</html>

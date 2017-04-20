@@ -1,37 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainApp">
 <head>
   <title>15C2</title>
   <script src="../../Libraries/angular.js"></script>
   <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
   <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
-<script>
+  <script src="https://code.angularjs.org/1.4.0-rc.2/angular-sanitize.js"></script>
+
+<script>//without ngSanitize browser mentions unsafe content
 //module goes here
-  var mainApp = angular.module("mainApp", []);
+  var mainApp = angular.module("mainApp", ['ngSanitize']);
 //controller goes here
-  mainApp.controller('MainController', function ($scope, $interval){
-    $scope.counter = 0;
-    $scope.counterInterval;
-    $scope.incrCounter = function incrCounter() {
-      $scope.counter++
-    };
-    $scope.startCounter = function(){
-      counterInterval = $interval($scope.incrCounter, 1000);
-    };
-    $scope.stopCounter = function (){
-      $interval.cancel(counterInterval);
-      $scope.counter = 0;
-    };
+  mainApp.controller('MainController', function ($scope, $interpolate){
+    var str = "Hello my name is {{name}}";
+    var data = {name: "<strong>Ivan</strong>"};
+    $scope.result = $interpolate(str)(data);
   })
 </script>
 
 </head>
-<body ng-app="mainApp">
+<body>
   <div class="container" ng-controller="MainController">
     <!--bootstraping goes here-->
-    <button ng-click="startCounter()">start</button>
-    <button ng-click="stopCounter()">stop</button>
-    <h1>{{counter}}</h1>
+
+    <div ng-bind-html="result"></div>
   </div>
 </body>
 

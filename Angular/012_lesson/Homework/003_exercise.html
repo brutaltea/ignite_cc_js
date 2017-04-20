@@ -10,44 +10,122 @@
   var mainApp = angular.module("mainApp", []);
 //controller goes here
   mainApp.controller('MainController', function ($scope){
-    $scope.question1 = { value: "1+1", firstOption: 1, secondOption: 2, thirdOption: 3, fourthOption: 4};
-    $scope.question2 = { value: "2+2", firstOption: 2, secondOption: 4, thirdOption: 6, fourthOption: 8};
-    $scope.question3 = { value: "3+3", firstOption: 3, secondOption: 6, thirdOption: 9, fourthOption: 12};
-    $scope.question4 = { value: "4+4", firstOption: 4, secondOption: 8, thirdOption: 12, fourthOption: 16};
-    $scope.question5 = { value: "5+5", firstOption: 5, secondOption: 10, thirdOption: 15, fourthOption: 20}];
+    var counter = 0;
 
+    $scope.checkTest = function () {
+      if (counter>4) {
+        alert("You've completed the test!")
+      }else{
+        alert("Try again!")
+      };
+    };
+    $scope.qn1 = true;
+    $scope.qn2 = true;
+    $scope.qn3 = true;
+    $scope.qn4 = true;
+    $scope.qn5 = true;
+    $scope.firstAns = function () {
+      counter++;
+    }
+    $scope.hideFirst =
+    function () {
+      $scope.qn1 = false;
+    }
+    $scope.secondAns = function () {
+      counter++;
+    }
+    $scope.hideSecond =
+    function () {
+      $scope.qn2 = false;
+    }
+    $scope.thirdAns = function () {
+      counter++;
+    }
+    $scope.hideThird =
+    function () {
+      $scope.qn3 = false;
+    }
+    $scope.fourthAns = function () {
+      counter++;
+    }
+    $scope.hideFourth =
+    function () {
+      $scope.qn4 = false;
+    }
+    $scope.fifthAns = function () {
+      counter++;
+    }
+    $scope.hideFifth =
+    function () {
+      $scope.qn5 = false;
+    }
   })
 </script>
-
 </head>
 <!--bootstraping goes here-->
 <body ng-app="mainApp">
   <div class="container" ng-controller="MainController">
     <div class="radio">
       <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+        <input type="radio" ng-model="qView" value="q1">
         First question.
-
       </label>
       <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        <input type="radio" ng-model="qView" value="q2">
         Second question.
       </label>
       <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+        <input type="radio" ng-model="qView" value="q3">
         Third question.
       </label>
       <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+        <input type="radio" ng-model="qView" value="q4">
         Fourth question.
       </label>
       <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios5" value="option5">
+        <input type="radio" ng-model="qView" value="q5">
         Fifth question.
       </label>
     </div>
+    <button type="button" ng-click="checkTest()" name="button">Complete Test</button>
 
-
+    <div ng-switch="qView">
+      <div  ng-switch-when="q1" ng-show="qn1">
+        <h1>1+1?</h1>
+        <button ng-click="hideFirst()" name="q1" type="radio">1</button>
+        <button ng-click="firstAns(); hideFirst()">2</button>
+        <button ng-click="hideFirst()" type="radio" name="q1">3</button>
+        <button ng-click="hideFirst()" type="radio" name="q1">4</button>
+      </div>
+      <div  ng-switch-when="q2" ng-show="qn2">
+        <h1>2+2?</h1>
+        <button ng-click="hideSecond()" name="q2" type="radio">2</button>
+        <button ng-click="hideSecond(); secondAns()" name="q2" type="radio">4</button>
+        <button ng-click="hideSecond()" name="q2" type="radio">6</button>
+        <button ng-click="hideSecond()" name="q2" type="radio">8</button>
+      </div>
+      <div  ng-switch-when="q3" ng-show="qn3">
+        <h1>3+3?</h1>
+        <button ng-click="hideThird()" name="q3" type="radio">3</button>
+        <button ng-click="hideThird(); thirdAns()" name="q3" type="radio">6</button>
+        <button ng-click="hideThird()" name="q3" type="radio">9</button>
+        <button ng-click="hideThird()" name="q3" type="radio">12</button>
+      </div>
+      <div  ng-switch-when="q4" ng-show="qn4">
+        <h1>4+4?</h1>
+        <button ng-click="hideFourth()" name="q4" type="radio">4</button>
+        <button ng-click="hideFourth(); fourthAns()" name="q4" type="radio">8</button>
+        <button ng-click="hideFourth()" name="q4" type="radio">12</button>
+        <button ng-click="hideFourth()" name="q4" type="radio">16</button>
+      </div>
+      <div  ng-switch-when="q5" ng-show="qn5">
+        <h1>5+5?</h1>
+        <button ng-click="hideFifth()" name="q5" type="radio">5</button>
+        <button ng-click="hideFifth(); fifthAns()" name="q5" type="radio">10</button>
+        <button ng-click="hideFifth()" name="q5" type="radio">15</button>
+        <button ng-click="hideFifth()" name="q5" type="radio">20</button>
+      </div>
+    </div>
   </div>
 </body>
 
