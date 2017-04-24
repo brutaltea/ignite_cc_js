@@ -1,0 +1,68 @@
+.container-fluid{
+  padding-left: 0px;
+  padding-right: 0px;
+  overflow: hidden;
+}
+nav.navbar.navbar-default {
+  padding-left: 398px;
+  padding-right: 375px;
+  background-color: #ffffff;
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+ul li a.nav-link {
+  height: 100px;
+  padding-top: 0px;
+  padding-top: 45px;
+  padding-bottom: 0px;
+  color: #9e9fa0!important;
+  font-family: Raleway;
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+ul li a.nav-link:hover{
+  color: #00e1ff!important;
+  border-bottom: 1px solid #00e1ff;;
+}
+a.nav-logo {
+  padding-top: 35px;
+}
+a.nav-logo div.logo-text {
+  color: #3f4244;
+  font-family: Raleway;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  float: left;
+  margin-left: 70px;
+  margin-top: -25px;
+}
+.cover {
+  height: 800px;
+  background: url("../img/header/background.png");
+  margin: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.cover-text{
+  margin: auto;
+  width: 597px;
+  height: 43px;
+  color: #ffffff;
+  font-family: Raleway;
+  font-size: 58px;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin-top: 284px;
+}
+.cover-button{
+  margin: auto;
+  margin-top: 40px;
+  width: 171px;
+  height: 51px;
+  border:1px solid white;
+  text-align: center;
+  padding-top: 15px;
+  color: #ffffff;
+}
